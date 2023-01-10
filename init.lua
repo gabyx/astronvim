@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "default_theme",
+  colorscheme = "catppuccin",
 
   -- Add highlight groups in any theme
   highlights = {
@@ -218,6 +218,13 @@ local config = {
   -- Configure plugins
   plugins = {
     init = {
+      {
+        "catppuccin/nvim",
+        as = "catppuccin",
+        config = function()
+          require("catppuccin").setup {}
+        end,
+      },
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
