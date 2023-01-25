@@ -12,7 +12,7 @@
 ---@field lazy? boolean If true, the plugin will only be loaded when necessary
 ---@field enabled? boolean|fun():boolean Specify if the plugin should be included in the spec
 ---@field cond? boolean|fun():boolean Specify condition for whether the plugin should be loaded (Useful for specifying plugins for VsCode/FireNvim) 
----@field dependencies LazyDependencyConfig[] List of plugin names or plugin specs that should be loaded when the plugin loads. If you only specify the name, make sure the plugin config is specified somewhere else
+---@field dependencies string|LazyDependencyConfig[] List of plugin names or plugin specs that should be loaded when the plugin loads. If you only specify the name, make sure the plugin config is specified somewhere else
 ---@field opts? table|function:table Should be a table/returns a table of configuration option for a plugin. If this is set, `config` argument will be considered as `true`
 ---@field config? function|true If true, assume and execute `require(plugin_name).setup(opts)`, with opts that can be modified using the `opts` argument of the plugin config. If a function, then this will be executed appropriately
 ---@field build? string Executed when a plugin is installed or updated. If it's a string, it will be ran as a shell command. When prefixed with `:` it will be considered a Neovim command.
@@ -22,7 +22,7 @@
 ---@field version? string A specific version to use from. Supports full [Semver](https://devhints.io/semver) ranges
 ---@field pin? boolean If true, this plugin will not be updated
 ---@field event? string|string[] This plugin will be loaded when the Vim Event(s) happens. For more information, see `:h events`, `:h diagnostic-events`, `:h lsp-events`
----@field cmd? string|string[] The plugin will be load when the command(s) is triggered
+---@field cmd? string|string[] The plugin will be load when the Vim command(s) is triggered
 ---@field ft? string|string[] When opening/setting a file with filetype(s) in this specified list, the plugin will be loaded
 ---@field keys? string|string[] Specify some sequence of keybinds that will load this plugin
 ---@field module? false If specified, will not automatically load this Lua module when it's required by some other plugin(s)
