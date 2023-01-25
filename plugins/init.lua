@@ -1,6 +1,6 @@
 local overrides = require("custom.plugins.overrides")
 
----@type {[PluginName]: PluginConfig|false}
+---@type NvPluginsTable
 local plugins = {
 
 	-- Override plugin definition options

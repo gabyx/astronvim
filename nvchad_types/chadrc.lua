@@ -2,7 +2,7 @@
 
 ---@class ChadrcConfig
 ---@field ui? UIConfig
----@field plugins? table<PluginName, PluginConfig|false> If false, remove the plugin from NvChad
+---@field plugins? NvPluginsTable If a `PluginName` is set to `false`, remove it from the plugin config
 ---@field mappings? MappingsConfig
 
 ---@class UIConfig
@@ -49,17 +49,6 @@
 ---@class NvCheatSheetConfig
 ---@field theme '"grid"'|'"simple"' Cheat sheet theme
 
----@alias PluginName string
-
----@class PluginConfig
----@field override_options? table|fun():table Table containing options that you want to override for a plugin inside NvChad. This has no effect for plugins not installed by default by NvChad (e.g. bufferline.nvim)
----@field rm_default_opts? boolean Whether to only use your custom plugin config or not. If true, override_options will not have any effect
----@field config? fun() Function to be called after loading the plugin
----@field event? string|string[] This plugin will be loaded when the Vim Event(s) happens. For more information, see `:h events`, `:h diagnostic-events`, `:h lsp-events`
----@field cmd? string|string[] The plugin will be load when the command(s) is triggered
----@field ft? string|string[] Specifies filetypes that will load this plugin
----@field keys? string|string[] Specifies sequence of keybinds that will load this plugin
----@field commit? string Specify to use this plugin to use this specified commit id
 
 --- List of keymaps that is part of `core/mappings.lua` that will be removed
 ---@alias DisabledTable {[VimKeymapMode]: DisabledKeymaps}
