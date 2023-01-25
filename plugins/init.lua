@@ -1,6 +1,7 @@
 local overrides = require("custom.plugins.overrides")
 
-return {
+---@type {[PluginName]: PluginConfig|false}
+local plugins = {
 
 	-- Override plugin definition options
 
@@ -43,3 +44,5 @@ return {
 	-- remove plugin
 	-- ["hrsh7th/cmp-path"] = false,
 }
+
+return plugins
