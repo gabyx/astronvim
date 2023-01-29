@@ -397,6 +397,8 @@ local config = {
     -- augroups/autocommands and custom filetypes also this just pure lua so
     -- anything that doesn't fit in the normal config locations above can go here
     polish = function()
+        local vim = vim
+        local opt = vim.opt
         -- Set up custom filetypes
         -- vim.filetype.add {
         --   extension = {
@@ -409,6 +411,10 @@ local config = {
         --     ["~/%.config/foo/.*"] = "fooscript",
         --   },
         -- }
+
+        -- Treesitter folding
+        opt.foldmethod = "expr"
+        opt.foldexpr = "nvim_treesitter#foldexpr()"
     end
 }
 
