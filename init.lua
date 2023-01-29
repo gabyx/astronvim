@@ -415,6 +415,10 @@ local config = {
         -- Treesitter folding
         opt.foldmethod = "expr"
         opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+        -- vim.diagnostic.config({virtual_text = false})
+        -- vim.diagnostic.config({signs = false})
+
     end
 }
 
