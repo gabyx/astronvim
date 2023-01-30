@@ -29,8 +29,8 @@
 ---@field priority? number Only useful for **start** plugins to force loading order. Higher number means higher priority. Default priority is **50**
 
 ---@class NvPluginConfig : PluginConfig
----@field override_options? table|fun():table Table containing options that you want to override for a plugin inside NvChad. This has no effect for plugins not installed by default by NvChad (e.g. bufferline.nvim)
----@field rm_default_opts? boolean Whether to only use your custom plugin config or not. If true, override_options will not have any effect
+---@field override_options? table|fun():table Table format of your settings that will override NvChad's default options. The default settings you don't change here will remain in effect.
+---@field rm_default_opts? boolean If true, the default NvChad options will be removed.
 
 ---@class LazyPluginConfig: PluginConfig
 ---@field [1] string Short plugin url. Equivalent of `url` argument
