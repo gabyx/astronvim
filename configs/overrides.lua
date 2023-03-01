@@ -11,6 +11,12 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
   },
+  indent = {
+    enable = true,
+    disable = {
+      "python"
+    },
+  },
 }
 
 M.mason = {
