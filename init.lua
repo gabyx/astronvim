@@ -133,15 +133,13 @@ local config = {
     -- Extend LSP configuration
     lsp = {
         -- enable servers that you already have installed without mason
-        servers = {
-            -- "pyright"
-        },
+        servers = {},
         formatting = {
             -- control auto formatting on save
             format_on_save = {
                 enabled = true, -- enable or disable format on save globally
                 allow_filetypes = { -- enable format on save for specified filetypes only
-                    -- "go",
+                    "go", "python", "rust", "markdown"
                 },
                 ignore_filetypes = { -- disable format on save for specified filetypes
                     -- "python",
@@ -250,7 +248,7 @@ local config = {
                         }
                     }
                 end
-            },
+            }
             -- You can disable default plugins as follows:
             -- ["goolord/alpha-nvim"] = { disable = true },
 
@@ -283,15 +281,21 @@ local config = {
             -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
             config.sources = {
                 -- Set a formatter
-                null_ls.builtins.formatting.stylua,
+                null_ls.builtins.formatting.trim_whitespace,
                 null_ls.builtins.formatting.prettier,
+                null_ls.builtins.formatting.prettierd,
                 null_ls.builtins.formatting.rustfmt,
+                null_ls.builtins.formatting.terraform_fmt,
+                null_ls.builtins.formatting.shfmt,
                 null_ls.builtins.formatting.gofmt,
+                null_ls.builtins.formatting.goimports,
                 null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.isort,
                 null_ls.builtins.formatting.clang_format,
                 null_ls.builtins.formatting.markdownlint,
-                null_ls.builtins.formatting.codespell
+                null_ls.builtins.formatting.markdown_toc,
+                null_ls.builtins.formatting.codespell,
+                null_ls.builtins.formatting.stylua
             }
 
             return config -- return final config table
@@ -312,14 +316,23 @@ local config = {
         },
         -- use mason-lspconfig to configure LSP installations
         ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-            -- ensure_installed = { "sumneko_lua" },
+            ensure_installed = {
+                "pyright", "rust_analyzer", "golangci_lint_ls", "clangd",
+                "gopls"
+            }
         },
         -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
         ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-            ensure_installed = {"prettier", "stylua", "rust"}
+            ensure_installed = {
+                "prettier", "prettierd", "stylua", "rustfmt", "gofmt", "shfmt",
+                "codespell", "markdownlint", "clang_format"
+            },
+            automatic_installation = false,
+            automatic_setup = true -- Recommended, but optional
         },
         ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
-            ensure_installed = {"python"}
+            ensure_installed = {"python", "delve", "codelldb"},
+            automatic_setup = true,
         }
     },
 
@@ -349,32 +362,6 @@ local config = {
             luasnip = 300,
             path = 250
         }
-    },
-
-    -- Customize Heirline options
-    heirline = {
-        -- -- Customize different separators between sections
-        -- separators = {
-        --   tab = { "", "" },
-        -- },
-        -- -- Customize colors for each element each element has a `_fg` and a `_bg`
-        -- colors = function(colors)
-        --   colors.git_branch_fg = astronvim.get_hlgroup "Conditional"
-        --   return colors
-        -- end,
-        -- -- Customize attributes of highlighting in Heirline components
-        -- attributes = {
-        --   -- styling choices for each heirline element, check possible attributes with `:h attr-list`
-        --   git_branch = { bold = true }, -- bold the git branch statusline component
-        -- },
-        -- -- Customize if icons should be highlighted
-        -- icon_highlights = {
-        --   breadcrumbs = false, -- LSP symbols in the breadcrumbs
-        --   file_icon = {
-        --     winbar = false, -- Filetype icon in the winbar inactive windows
-        --     statusline = true, -- Filetype icon in the statusline
-        --   },
-        -- },
     },
 
     -- Modify which-key registration (Use this with mappings table in the above.)
@@ -418,6 +405,8 @@ local config = {
 
         -- vim.diagnostic.config({virtual_text = false})
         -- vim.diagnostic.config({signs = false})
+
+        require 'mason-nvim-dap'.setup_handlers {}
 
     end
 }
