@@ -1,6 +1,6 @@
 # AstroVim Config
 
-This follows the instructions found at https://astronvim.github.io/configuration/manage_user_config. When setting up a new system do the following.
+This follows the instructions found at <https://astronvim.github.io/configuration/manage_user_config>. When setting up a new system do the following.
 
 ## Fresh Installation
 
@@ -28,9 +28,11 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 Test the settings now that the user config is in place.
 
 ### Optional unattended install
+
 Instead of running nvim +PackerSync to initialize AstroNvim you can run the following command to do a fully headless initialization:
 
 Full Steps:
+
 ```shell
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 git clone git@github.com:ericlake/astrovim_config.git ~/.config/nvim/lua/user
