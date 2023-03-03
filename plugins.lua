@@ -23,15 +23,15 @@ local plugins = {
     end,
   },
 
-  -- overrde plugin configs
+  -- Override plugin configs
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
+    opts = overrides.treesitter
   },
 
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason,
+    opts = overrides.mason
   },
 
   {
@@ -48,14 +48,13 @@ local plugins = {
     end,
   },
 
-  -- Editor config.
+  -- Editor config
   {
     "gpanders/editorconfig.nvim",
     config = function()
       require("gpanders/editorconfig.nvim").setup()
-    end
+    end,
   },
-
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
@@ -65,7 +64,7 @@ local plugins = {
   {
     "folke/which-key.nvim",
     enabled = true,
-  }
+  },
 }
 
 return plugins

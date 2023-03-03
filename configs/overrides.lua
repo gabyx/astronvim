@@ -8,8 +8,12 @@ M.treesitter = {
     "css",
     "javascript",
     "c",
+    "cpp",
+    "rust",
+    "go",
     "markdown",
     "markdown_inline",
+    "python",
   },
   indent = {
     enable = true,
@@ -21,15 +25,23 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
-    -- lua stuff
     "lua-language-server",
     "stylua",
+    
+    "rust-anaylyzer",
+    
+    "golangci-lint-ls",
+    "gofmt",
+
+    "pyright",
+    "python-language-lsp",
 
     -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
+    -- "css-lsp",
+    -- "html-lsp",
+    -- "typescript-language-server",
+    -- "deno",
+    
   },
 }
 
