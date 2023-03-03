@@ -18,30 +18,60 @@ M.treesitter = {
   indent = {
     enable = true,
     disable = {
-      "python"
+      "python",
     },
   },
 }
 
 M.mason = {
   ensure_installed = {
+
+    "editorconfig-checker",
+
+    "json-lsp",
+    "prettier",
+    "prettierd",
+
+
     "lua-language-server",
     "stylua",
-    
-    "rust-anaylyzer",
-    
-    "golangci-lint-ls",
-    "gofmt",
+
+    "groovy-language-server",
+
+    "bash-language-server",
+    "shellcheck",
+    "shfmt",
+
+    "docker-compose-language-service",
+    "dockerfile-language-server",
+
+    "rustfmt",
+    "rust-analyzer",
+
+    "goimports",
+    "golangci-lint",
+    "golangci-lint-langserver",
+    "delve",
 
     "pyright",
-    "python-language-lsp",
+    "python-lsp-server",
+    "mypy",
+    "autoflake",
+    "flake8",
+    "black",
+    "isort",
+
+    "cpptools",
+
+    "gradle-language-server",
+
+    "codespell",
 
     -- web dev stuff
     -- "css-lsp",
     -- "html-lsp",
     -- "typescript-language-server",
     -- "deno",
-    
   },
 }
 
