@@ -7,15 +7,15 @@
 local config = {
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin", -- remote to use
-    channel = "nightly", -- "stable" or "nightly"
-    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "main", -- branch name (NIGHTLY ONLY)
-    commit = nil, -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false, -- skip prompts about breaking changes
+    remote = "origin",     -- remote to use
+    channel = "nightly",   -- "stable" or "nightly"
+    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "main",       -- branch name (NIGHTLY ONLY)
+    commit = nil,          -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false,  -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_quit = false, -- automatically quit the current session after a successful update
+    auto_quit = false,     -- automatically quit the current session after a successful update
     -- remotes = { -- easily add new remotes to track
     --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
     --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
@@ -38,18 +38,18 @@ local config = {
     opt = {
       -- set to true or false etc.
       relativenumber = true, -- sets vim.opt.relativenumber
-      number = true, -- sets vim.opt.number
-      spell = false, -- sets vim.opt.spell
-      signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = false, -- sets vim.opt.wrap
+      number = true,         -- sets vim.opt.number
+      spell = false,         -- sets vim.opt.spell
+      signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
+      wrap = false,          -- sets vim.opt.wrap
     },
     g = {
-      mapleader = " ", -- sets vim.g.mapleader
-      autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-      cmp_enabled = true, -- enable completion at start
-      autopairs_enabled = true, -- enable autopairs at start
-      diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
-      icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+      mapleader = " ",                 -- sets vim.g.mapleader
+      autoformat_enabled = true,       -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+      cmp_enabled = true,              -- enable completion at start
+      autopairs_enabled = true,        -- enable autopairs at start
+      diagnostics_mode = 3,            -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
+      icons_enabled = true,            -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       ui_notifications_enabled = true, -- disable notifications when toggling UI elements
     },
   },
@@ -72,7 +72,7 @@ local config = {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = true,     -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           "go",
           "python",
@@ -191,13 +191,13 @@ local config = {
       config = function(_, opts)
         local rt = require "rust-tools"
         opts["server"] = {
-            on_attach = function(_, bufnr)
-              -- Hover actions
-              vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-              -- Code action groups
-              vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-            end,
-          }
+          on_attach = function(_, bufnr)
+            -- Hover actions
+            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+          end,
+        }
         rt.setup(opts)
       end,
     }, --
@@ -288,16 +288,12 @@ local config = {
         return opts
       end,
     }, --
-    -- Install neodev, to have LSP support for all neovim LUA development.
-    {
-      "folke/neodev.nvim",
-      config = true
-    },
     -- Install the neoconf setup.
     {
-      "folke/neoconf.nvim",
-      dependencies = {"neovim/nvim-lspconfig", "williamboman/mason-lspconfig.nvim"},
-      config = true,
+      "neovim/nvim-lspconfig",
+      dependencies = {
+        { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+      },
     },
     {
       "jose-elias-alvarez/null-ls.nvim",
@@ -328,7 +324,7 @@ local config = {
         }
         return config -- return final config table
       end,
-    }, --
+    },                --
     -- Treesitter setup.
     {
       "nvim-treesitter/nvim-treesitter",
@@ -387,7 +383,7 @@ local config = {
         automatic_installation = false,
         automatic_setup = true, -- Recommended, but optional
       },
-    }, --
+    },                          --
     -- Use mason-nvim-dap to configure debug adapters.
     {
       "jay-babu/mason-nvim-dap.nvim",
@@ -411,10 +407,10 @@ local config = {
         -- modify the sources part of the options table
         opts.sources = cmp.config.sources {
           { name = "nvim_lsp", priority = 1000 },
-          { name = "luasnip", priority = 750 },
-          { name = "buffer", priority = 500 },
-          { name = "path", priority = 250 },
-          { name = "emoji", priority = 700 }, -- add new source
+          { name = "luasnip",  priority = 750 },
+          { name = "buffer",   priority = 500 },
+          { name = "path",     priority = 250 },
+          { name = "emoji",    priority = 700 }, -- add new source
         }
         return opts
       end,
