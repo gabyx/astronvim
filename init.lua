@@ -296,7 +296,7 @@ local config = {
     -- Install the neoconf setup.
     {
       "folke/neoconf.nvim",
-      dependencies = {"williamboman/mason-lspconfig.nvim"},
+      dependencies = {"neovim/nvim-lspconfig", "williamboman/mason-lspconfig.nvim"},
       config = true,
     },
     {
