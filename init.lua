@@ -8,7 +8,7 @@ local config = {
   -- Configure AstroNvim updates
   updater = {
     remote = "origin",     -- remote to use
-    channel = "stable",   -- "stable" or "nightly"
+    channel = "stable",    -- "stable" or "nightly"
     version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
     branch = "main",       -- branch name (NIGHTLY ONLY)
     commit = nil,          -- commit hash (NIGHTLY ONLY)
@@ -201,6 +201,23 @@ local config = {
         rt.setup(opts)
       end,
     }, --
+    {
+      "neo-tree.nvim",
+      opts = {
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            hide_dotfiles = false,
+            hide_gitignored = false,
+            never_show = {
+              ".DS_Store",
+              ".git"
+            }
+          },
+        },
+      },
+    },
+    --
     -- You can disable default plugins as follows:
     -- { "max397574/better-escape.nvim", enabled = false },
     --
@@ -539,7 +556,7 @@ local config = {
   polish = function()
     local vim = vim
     local opt = vim.opt
-    
+
     -- Treesitter folding
     opt.foldmethod = "expr"
     opt.foldexpr = "nvim_treesitter#foldexpr()"
