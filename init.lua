@@ -8,7 +8,7 @@ local config = {
   -- Configure AstroNvim updates
   updater = {
     remote = "origin",     -- remote to use
-    channel = "nightly",   -- "stable" or "nightly"
+    channel = "stable",   -- "stable" or "nightly"
     version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
     branch = "main",       -- branch name (NIGHTLY ONLY)
     commit = nil,          -- commit hash (NIGHTLY ONLY)
@@ -539,19 +539,7 @@ local config = {
   polish = function()
     local vim = vim
     local opt = vim.opt
-    -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
-
+    
     -- Treesitter folding
     opt.foldmethod = "expr"
     opt.foldexpr = "nvim_treesitter#foldexpr()"
