@@ -7,6 +7,12 @@ return {
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
+    -- Treesitter folding
+    foldmethod = "expr",
+    foldexpr = "nvim_treesitter#foldexpr()",
+    -- Whitespace Characters
+    listchars = "tab:▷ ,trail:·,extends:◣,precedes:◢,nbsp:○",
+    list = true,
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
