@@ -9,7 +9,7 @@ return {
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
       config.sources = {
-        -- Set a formatter
+        -- Set formatter.
         null_ls.builtins.formatting.trim_whitespace,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.prettierd,
@@ -23,8 +23,10 @@ return {
         null_ls.builtins.formatting.clang_format,
         null_ls.builtins.formatting.markdownlint,
         null_ls.builtins.formatting.markdown_toc,
-        null_ls.builtins.formatting.codespell,
         null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.npm_groovy_lint,
+        -- Set diagnostics.
+        null_ls.builtins.diagnostics.codespell,
       }
       return config -- return final config table
     end,

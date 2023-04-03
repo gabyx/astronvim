@@ -10,6 +10,7 @@ return {
         "python",
         "go",
         "cpp",
+        "dockerfile",
       },
       auto_install = true,
       highlight = {

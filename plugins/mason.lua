@@ -17,6 +17,8 @@ return {
         "golangci_lint_ls",
         "clangd",
         "gopls",
+        "bashls",
+        "dockerls",
       },
     },
   },
