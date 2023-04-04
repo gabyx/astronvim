@@ -127,13 +127,6 @@ local config = {
     local vim = vim
     local opt = vim.opt
 
-    -- Treesitter folding
-    opt.foldmethod = "expr"
-    opt.foldexpr = "nvim_treesitter#foldexpr()"
-
-    -- Whitespace Characters
-    opt.listchars = "tab:▷ ,trail:·,extends:◣,precedes:◢,nbsp:○"
-
     -- Load refactoring Telescope extension
     require("telescope").load_extension "refactoring"
   end,
