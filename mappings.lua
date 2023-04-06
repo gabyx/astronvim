@@ -23,6 +23,11 @@ return {
     -- Search Git files.
     ["<leader>fg"] = { ":Telescop git_files<cr>", desc = "Find Git files" },
     ["<leader>wa>"] = { ":wa!<cr>", desc = "Save all files" },
+    -- Undo Tree toggle.
+    ["<leader>bu"] = {
+      function() vim.cmd.UndotreeToggle() end,
+      desc = "Show Undo Tree",
+    },
   },
   t = {
     -- setting a mapping to false will disable it

@@ -18,4 +18,8 @@ return {
       rt.setup(opts)
     end,
   },
+  {
+    "mbbill/undotree",
+    lazy = false,
+  },
 }
