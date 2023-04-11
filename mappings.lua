@@ -21,13 +21,16 @@ return {
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
     -- Search Git files.
-    ["<leader>fg"] = { ":Telescop git_files<cr>", desc = "Find Git files" },
+    ["<leader>fg"] = { ":Telescope git_files<cr>", desc = "Find Git files" },
     ["<leader>wa>"] = { ":wa!<cr>", desc = "Save all files" },
     -- Undo Tree toggle.
     ["<leader>bu"] = {
       function() vim.cmd.UndotreeToggle() end,
       desc = "Show Undo Tree",
     },
+    -- Search commands.
+    ["<leader>s"] = { name = "Search" },
+    ["<leader>ss"] = { ":Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy search in current buffer" },
   },
   t = {
     -- setting a mapping to false will disable it
