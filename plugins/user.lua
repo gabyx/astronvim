@@ -22,4 +22,8 @@ return {
     "mbbill/undotree",
     lazy = false,
   },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
 }
