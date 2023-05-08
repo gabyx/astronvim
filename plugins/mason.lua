@@ -90,4 +90,5 @@ return {
       automatic_setup = true,
     },
   },
+  { "p00f/clangd_extensions.nvim" }, -- install lsp plugin
 }

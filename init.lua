@@ -10,7 +10,7 @@ local config = {
     remote = "origin", -- remote to use
     channel = "stable", -- "stable" or "nightly"
     version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "main", -- branch name (NIGHTLY ONLY)
+    branch = "nightly", -- branch name (NIGHTLY ONLY)
     commit = nil, -- commit hash (NIGHTLY ONLY)
     pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
     skip_prompts = false, -- skip prompts about breaking changes
@@ -31,6 +31,17 @@ local config = {
   },
   -- Extend LSP configuration
   lsp = {
+    setup_handlers = {
+      -- add custom handler
+      clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end,
+    },
+    config = {
+      clangd = {
+        capabilities = {
+          offsetEncoding = "utf-8",
+        },
+      },
+    },
     -- enable servers that you already have installed without mason
     servers = {},
     formatting = {
@@ -43,6 +54,7 @@ local config = {
           "rust",
           "markdown",
           "lua",
+          "cpp",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
