@@ -13,6 +13,9 @@ return {
     -- Whitespace Characters
     listchars = "tab:▷ ,trail:·,extends:◣,precedes:◢,nbsp:○",
     list = true,
+    -- Auto-reload files when modified externally
+    -- https://unix.stackexchange.com/a/383044
+    autoread = true,
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
