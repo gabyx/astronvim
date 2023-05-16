@@ -29,46 +29,6 @@ local config = {
     virtual_text = true,
     underline = true,
   },
-  -- Extend LSP configuration
-  lsp = {
-    setup_handlers = {
-      -- add custom handler
-      clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end,
-    },
-    config = {
-      clangd = {
-        capabilities = {
-          offsetEncoding = "utf-8",
-        },
-      },
-    },
-    -- enable servers that you already have installed without mason
-    servers = {},
-    formatting = {
-      -- control auto formatting on save
-      format_on_save = {
-        enabled = true, -- enable or disable format on save globally
-        allow_filetypes = { -- enable format on save for specified filetypes only
-          "go",
-          "python",
-          "rust",
-          "markdown",
-          "lua",
-          "cpp",
-        },
-        ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
-        },
-      },
-      disabled = { -- disable formatting capabilities for the listed language servers
-        -- "lua_ls",
-      },
-      timeout_ms = 1000, -- default format timeout
-      -- filter = function(client) -- fully override the default formatting function
-      --   return true
-      -- end
-    },
-  },
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
@@ -138,6 +98,9 @@ local config = {
   polish = function()
     local vim = vim
     local opt = vim.opt
+
+    -- Load autocmds
+    require "user.autocmds"
 
     -- Load refactoring Telescope extension
     require("telescope").load_extension "refactoring"
