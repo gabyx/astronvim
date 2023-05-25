@@ -1,7 +1,6 @@
 return { -- add custom handler
   clangd = function(server, opts) require("clangd_extensions").setup { server = opts } end,
   pyright = function(server, opts)
-    print(vim.inspect(opts))
     -- Exclude some files for the root marker.
     -- No `requirements.txt`
     local root_files = {
