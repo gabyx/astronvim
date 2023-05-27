@@ -19,6 +19,7 @@ return {
         "gopls",
         "bashls",
         "dockerls",
+        "texlab",
       },
     },
   },
