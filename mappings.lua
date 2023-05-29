@@ -32,7 +32,7 @@ return {
     ["<leader>s"] = { name = "Search" },
     ["<leader>ss"] = { ":Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy search in current buffer" },
     -- LSP commands.
-    ["<leader>l."] = { "LspRestart", desc = "Restart LSP" },
+    ["<leader>l."] = { ":LspRestart", desc = "Restart LSP" },
   },
   t = {
     -- setting a mapping to false will disable it
