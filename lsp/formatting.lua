@@ -8,7 +8,7 @@ return {
       "rust",
       "markdown",
       "lua",
-      "cpp"
+      "cpp",
       "groovy",
     },
     ignore_filetypes = { -- disable format on save for specified filetypes
