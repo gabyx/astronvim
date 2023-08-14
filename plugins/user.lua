@@ -25,6 +25,7 @@ return {
   {
     "alexghergh/nvim-tmux-navigation",
     lazy = false,
+    pin = true,
     opts = {
       disable_when_zoomed = true,
       keybindings = {
@@ -45,5 +46,5 @@ return {
   },
   -- Cpp plugins
   { "Civitasv/cmake-tools.nvim" },
-  { "p00f/clangd_extensions.nvim" }, -- install lsp plugin
+  { "p00f/clangd_extensions.nvim", pin = true }, -- install lsp plugin
 }
