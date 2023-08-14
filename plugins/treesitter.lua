@@ -14,6 +14,7 @@ return {
         "javascript",
         "json",
         "go",
+        "cmake",
         "cpp",
         "dockerfile",
         "bash",

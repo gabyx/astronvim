@@ -33,6 +33,8 @@ return {
     ["<leader>ss"] = { ":Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy search in current buffer" },
     -- LSP commands.
     ["<leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
+    -- File commands.
+    ["<leader>b."] = { ":echo expand('%:p'", desc = "Show Buffer Path" },
   },
   t = {
     -- setting a mapping to false will disable it
