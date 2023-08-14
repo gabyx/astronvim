@@ -20,6 +20,7 @@ return {
         "bashls",
         "dockerls",
         "texlab",
+        "lua-language-server",
       },
     },
   },
