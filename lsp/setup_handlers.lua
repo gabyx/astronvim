@@ -1,5 +1,5 @@
 return { -- add custom handler
-  clangd = function(server, opts) require("clangd_extensions").setup { server = opts } end,
+  clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end,
   pyright = function(server, opts)
     -- Exclude some files for the root marker.
     -- No `requirements.txt`

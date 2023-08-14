@@ -43,4 +43,7 @@ return {
     cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
+  -- Cpp plugins
+  { "Civitasv/cmake-tools.nvim" },
+  { "p00f/clangd_extensions.nvim" }, -- install lsp plugin
 }
