@@ -2,7 +2,7 @@
 --
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
--- automatically pick-up stored data by this setting.)
+-- automatically pick-up stored data by this setting.)
 return {
   -- first key is the mode
   n = {
@@ -34,7 +34,7 @@ return {
     -- LSP commands.
     ["<leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
     -- File commands.
-    ["<leader>b."] = { ":echo expand('%:p'", desc = "Show Buffer Path" },
+    ["<leader>b."] = { ":echo expand('%:p')<cr>", desc = "Show Buffer Path" },
   },
   t = {
     -- setting a mapping to false will disable it
