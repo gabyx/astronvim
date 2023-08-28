@@ -1,8 +1,4 @@
 return { -- add custom handler
-  clangd = function(server, opts)
-    require("lspconfig")[server].setup(opts)
-    require("clangd_extensions").setup()
-  end,
   pyright = function(server, opts)
     -- Exclude some files for the root marker.
     -- No `requirements.txt`
