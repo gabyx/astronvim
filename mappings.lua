@@ -35,6 +35,25 @@ return {
     ["<leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
     -- File commands.
     ["<leader>b."] = { ":echo expand('%:p')<cr>", desc = "Show Buffer Path" },
+
+    -- Apply commands.
+    ["<leader>a"] = { name = "Apply Commands and Macros" },
+    ["<leader>am"] = {
+      ":'<,'> norm @<macro-letter-name>",
+      desc = "Apply macro over the selected lines.",
+    },
+    ["<leader>ac"] = {
+      ":'<,'> !<shell-command>",
+      desc = "Apply command over the selected lines.",
+    },
+    ["<leader>aM"] = {
+      ":'<,'> norm @<macro-letter-name>",
+      desc = "Apply macro over the buffer.",
+    },
+    ["<leader>aC"] = {
+      ":'<,'> !<shell-command>",
+      desc = "Apply command over the buffer.",
+    },
   },
   t = {
     -- setting a mapping to false will disable it
