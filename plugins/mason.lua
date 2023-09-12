@@ -22,6 +22,7 @@ return {
         "texlab",
         "jsonls",
         "yamlls",
+        "nixd",
         -- "lua_ls",
       },
     },
