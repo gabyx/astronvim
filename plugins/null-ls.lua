@@ -1,6 +1,6 @@
 return {
   -- https://github.com/craftzdog/dotfiles-public/issues/132
-  -- Null-ls is archieved, replace with something else.
+  -- Null-ls is archived, replace with something else.
   {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, config)
