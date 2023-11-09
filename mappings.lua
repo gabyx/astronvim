@@ -54,6 +54,11 @@ return {
       ":'<,'> !<shell-command>",
       desc = "Apply command over the buffer.",
     },
+    -- Format commands.
+    ["<leader>bf"] = {
+      ":FormatWriteLock<cr>",
+      desc = "Format current buffer."
+    },
   },
   t = {
     -- setting a mapping to false will disable it
