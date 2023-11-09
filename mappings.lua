@@ -2,7 +2,8 @@
 --
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
--- automatically pick-up stored data by this setting.)
+-- automatically pick-up stored data by this setting.)
+
 return {
   -- first key is the mode
   n = {
@@ -54,12 +55,36 @@ return {
       ":'<,'> !<shell-command>",
       desc = "Apply command over the buffer.",
     },
+
     -- Format commands.
     ["<leader>bf"] = {
       ":FormatWriteLock<cr>",
       desc = "Format current buffer."
     },
+
+    -- Gomove plugin
+    -- ["<S-h>"] = { "<Plug>GoNSMLeft" },
+    -- ["<D-j>"] = { "<Plug>GoNSMDown" },
+    -- ["<S-k>"] = { "<Plug>GoNSMUp" },
+    -- ["<S-l>"] = { "<Plug>GoNSMRight" },
+    -- ["<D-j>"] = { "<Plug>GoNSMDown" },
+    -- ["<C-h>"] = { "<Plug>GoNSDLeft" },
+    -- ["<C-j>"] = { "<Plug>GoNSDDown" }
+    -- ["<C-k>"] = { "<Plug>GoNSDUp" },
+    -- ["<C-l>"] = { "<Plug>GoNSDRight" },
   },
+
+  x = {
+    -- ["<C-h>"] = { "<Plug>GoVSDLeft" },
+    -- ["<C-j>"] = { "<Plug>GoVSDDown" },
+    -- ["<C-k>"] = { "<Plug>GoVSDUp" },
+    -- ["<C-l>"] = { "<Plug>GoVSDRight" },
+    -- ["<S-h>"] = { "<Plug>GoVSMLeft" },
+    -- ["<S-j>"] = { "<Plug>GoVSMDown" },
+    -- ["<S-k>"] = { "<Plug>GoVSMUp" },
+    -- ["<S-l>"] = { "<Plug>GoVSMRight" },
+  },
+
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,

@@ -42,7 +42,6 @@ local config = {
           "zipPlugin",
           "netrwPlugin",
           "tarPlugin",
-          "matchparen",
         },
       },
     },

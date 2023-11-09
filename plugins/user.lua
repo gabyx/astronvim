@@ -1,4 +1,10 @@
 return {
+  -- Automatically configures lua-language-server for your Neovim config,
+  -- Neovim runtime and plugin directories
+  { "folke/neodev.nvim", 
+    lazy = false,
+    opts = {}
+  },
   {
     "tanvirtin/monokai.nvim",
   },
@@ -38,22 +44,27 @@ return {
       },
     },
   },
+  -- Markdown plugins.
   {
     "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
+    lazy = false,
   },
   -- Cpp plugins
   { "Civitasv/cmake-tools.nvim" },
   { "p00f/clangd_extensions.nvim", pin = true }, -- install lsp plugin
+  { "tamton-aquib/keys.nvim", lazy = false, opts = {
+    enable_on_startup = true,
+  } }, -- See keystrokes
   -- Move Plugint
   {
     "booperlv/nvim-gomove",
     lazy = false,
     opts = {
       -- whether or not to map default key bindings, (true/false)
-      map_defaults = true,
+      map_defaults = false,
       -- whether or not to reindent lines moved vertically (true/false)
       reindent = true,
       -- whether or not to undojoin same direction moves (true/false)
