@@ -19,7 +19,15 @@ return {
       desc = "Pick to close",
     },
     -- tables with the `name` key will be registered with which-key if it's installed
-    -- this is useful for naming menus
+    -- this is useful for naming menus.
+    --
+    -- Modifiers:
+    -- Alt: A-
+    -- Shift: S-
+    -- Control: C-
+    -- Super: D- M
+    -- Meta: T-
+
     ["<leader>b"] = { name = "Buffers" },
     -- Search Git files.
     ["<leader>fg"] = { ":Telescope git_files<cr>", desc = "Find Git files" },
@@ -59,7 +67,7 @@ return {
     -- Format commands.
     ["<leader>bf"] = {
       ":FormatWriteLock<cr>",
-      desc = "Format current buffer."
+      desc = "Format current buffer.",
     },
 
     -- Gomove plugin

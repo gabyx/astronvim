@@ -1,12 +1,24 @@
 return {
-  -- Automatically configures lua-language-server for your Neovim config,
-  -- Neovim runtime and plugin directories
-  { "folke/neodev.nvim", 
-    lazy = false,
-    opts = {}
-  },
+  -- Monokai Theme.
   {
     "tanvirtin/monokai.nvim",
+  },
+  -- Automatically configures lua-language-server for your Neovim config,
+  -- Neovim runtime and plugin directories
+  { "folke/neodev.nvim", lazy = false, opts = {} },
+  -- Auto session management.
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+        auto_session_enabled = true,
+        auto_save_enabled = true,
+        auto_restore_enabled = true,
+      }
+    end,
   },
   {
     "simrat39/rust-tools.nvim",
