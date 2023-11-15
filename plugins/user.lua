@@ -4,8 +4,6 @@ return {
     "tanvirtin/monokai.nvim",
   },
   -- Automatically configures lua-language-server for your Neovim config,
-  -- Neovim runtime and plugin directories
-  { "folke/neodev.nvim", lazy = false, opts = {} },
   -- Auto session management.
   {
     "rmagatti/auto-session",
@@ -66,11 +64,12 @@ return {
   },
   -- Cpp plugins
   { "Civitasv/cmake-tools.nvim" },
-  { "p00f/clangd_extensions.nvim", pin = true }, -- install lsp plugin
+  { "p00f/clangd_extensions.nvim", pin = true },
+  -- See keystrokes
   { "tamton-aquib/keys.nvim", lazy = false, opts = {
     enable_on_startup = true,
-  } }, -- See keystrokes
-  -- Move Plugint
+  } },
+  -- Move Plugin
   {
     "booperlv/nvim-gomove",
     lazy = false,

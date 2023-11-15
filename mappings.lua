@@ -37,6 +37,8 @@ return {
       function() vim.cmd.UndotreeToggle() end,
       desc = "Show Undo Tree",
     },
+    -- UI commands.
+    ["<leader>uT"] = { ":TSContextToggle<cr>", desc = "Treesitter Context" },
     -- Search commands.
     ["<leader>s"] = { name = "Search" },
     ["<leader>ss"] = { ":Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy search in current buffer" },
@@ -48,20 +50,12 @@ return {
     -- Apply commands.
     ["<leader>a"] = { name = "Apply Commands and Macros" },
     ["<leader>am"] = {
-      ":'<,'> norm @<macro-letter-name>",
-      desc = "Apply macro over the selected lines.",
+      ":. norm @<macro-name>",
+      desc = "Apply macro at current line.",
     },
     ["<leader>ac"] = {
-      ":'<,'> !<shell-command>",
-      desc = "Apply command over the selected lines.",
-    },
-    ["<leader>aM"] = {
-      ":'<,'> norm @<macro-letter-name>",
-      desc = "Apply macro over the buffer.",
-    },
-    ["<leader>aC"] = {
-      ":'<,'> !<shell-command>",
-      desc = "Apply command over the buffer.",
+      ":. !<sh-cmd>",
+      desc = "Apply command at current line.",
     },
 
     -- Format commands.
@@ -80,6 +74,19 @@ return {
     -- ["<C-j>"] = { "<Plug>GoNSDDown" }
     -- ["<C-k>"] = { "<Plug>GoNSDUp" },
     -- ["<C-l>"] = { "<Plug>GoNSDRight" },
+  },
+
+  v = {
+    -- Apply commands.
+    ["<leader>a"] = { name = "Apply Commands and Macros" },
+    ["<leader>am"] = {
+      ":norm @<macro-name>",
+      desc = "Apply macro over the selected lines.",
+    },
+    ["<leader>ac"] = {
+      ":!<sh-cmd>",
+      desc = "Apply command over the selected lines.",
+    },
   },
 
   x = {
