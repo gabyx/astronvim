@@ -27,6 +27,15 @@ return {
         additional_vim_regex_highlighting = false,
       },
       ident = { enable = true },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<CR>",
+          scope_incremental = "<CR>",
+          node_incremental = "<TAB>",
+          node_decremental = "<S-TAB>",
+        },
+      },
       rainbow = {
         enable = true,
         extended_mode = true,
@@ -34,5 +43,6 @@ return {
       },
     },
   },
+  { "mfussenegger/nvim-treehopper", dependencies = { "smoka7/hop.nvim" } },
   { "nvim-treesitter/nvim-treesitter-context", lazy = false },
 }

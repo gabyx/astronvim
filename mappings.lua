@@ -37,6 +37,10 @@ return {
       function() vim.cmd.UndotreeToggle() end,
       desc = "Show Undo Tree",
     },
+    -- Select and move inside AST.
+    ["<leader>ba"] = { ":<C-U>lua require('tsht').nodes()<CR>", desc = "Select in AST." },
+    ["<leader>bA"] = { ":<C-U>lua require('tsht').move()<CR>", desc = "Move in AST." },
+
     -- UI commands.
     ["<leader>uT"] = { ":TSContextToggle<cr>", desc = "Treesitter Context" },
     -- Search commands.
@@ -74,6 +78,16 @@ return {
     -- ["<C-j>"] = { "<Plug>GoNSDDown" }
     -- ["<C-k>"] = { "<Plug>GoNSDUp" },
     -- ["<C-l>"] = { "<Plug>GoNSDRight" },
+
+    -- Hop commands.
+    ["<leader>jk"] = { ":HopWord<CR>", desc = "Hop words." },
+    ["<leader>jl"] = { ":HopLines<CR>", desc = "Hop lines." },
+
+    -- Harpoon commands.
+    ["<leader>jf"] = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = "Harpoon list." },
+    ["<leader>jj"] = { ':lua require("harpoon.mark").add_file()<CR>', desc = "Add to harpoon list." },
+    ["<S-j>"] = { ':lua require("harpoon.ui").nav_next()<CR>', desc = "Next harpoon file." },
+    ["<S-k>"] = { ':lua require("harpoon.ui").nav_prev()<CR>', desc = "Previous harpoon file." },
   },
 
   v = {
@@ -87,6 +101,10 @@ return {
       ":!<sh-cmd>",
       desc = "Apply command over the selected lines.",
     },
+
+    -- Hop commands.
+    ["<leader>jk"] = { ":HopWord<CR>", desc = "Hop words." },
+    ["<leader>jh"] = { ":HopLine<CR>", desc = "Hop lines." },
   },
 
   x = {
