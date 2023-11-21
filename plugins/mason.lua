@@ -23,7 +23,7 @@ return {
         "jsonls",
         "yamlls",
         "rnix",
-        -- "lua_ls",
+        "lua_ls",
       },
     },
   },

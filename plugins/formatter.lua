@@ -34,8 +34,7 @@ return {
         rust = {
           function()
             return {
-              exe = "rustup",
-              args = { "run", "nightly", "rustfmt" },
+              exe = "rustfmt",
               stdin = true,
             }
           end,
@@ -43,9 +42,9 @@ return {
         ["*"] = {
           -- "formatter.filetypes.any" defines default configurations for any
           -- filetype
-          fs.any.remove_trailing_whitespace
-        }
-      }
+          fs.any.remove_trailing_whitespace,
+        },
+      },
     }
 
     fmt.setup(opts)
