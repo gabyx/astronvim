@@ -44,10 +44,19 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
-      ensure_installed = { "python", "delve", "codelldb" },
+      ensure_installed = {
+        "python",
+        "delve",
+        "codelldb",
+        "bash-debug-adapter",
+        "cpptools",
+      },
       automatic_setup = true,
     },
   },
+  -- Debugger setup project wise.
+  { "ldelossa/nvim-dap-projects" },
+
   -- CPP clangd extension.
   {
     "p00f/clangd_extensions.nvim",
