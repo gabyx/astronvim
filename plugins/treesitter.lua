@@ -21,7 +21,9 @@ return {
         "markdown",
         "markdown_inline",
       },
+      -- sync_install = true,
       auto_install = true,
+
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
@@ -40,6 +42,10 @@ return {
         enable = true,
         extended_mode = true,
         max_file_lines = nil,
+      },
+      -- We use always a C++ compiler.
+      install = {
+        compiler = { vim.fn.getenv "CXX", "clang++", "g++" },
       },
     },
   },
