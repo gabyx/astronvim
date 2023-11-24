@@ -1,1 +1,1 @@
-require("nvim-dap-projects").search_project_config()
+require("config-local").source()
