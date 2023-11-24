@@ -44,9 +44,9 @@ return {
         max_file_lines = nil,
       },
       -- We use always a C++ compiler.
-      install = {
-        compiler = { vim.fn.getenv "CXX", "clang++", "g++" },
-      },
+      -- install = {
+      --   compiler = { vim.fn.getenv "CXX", "clang++", "g++" },
+      -- },
     },
   },
   { "mfussenegger/nvim-treehopper", dependencies = { "smoka7/hop.nvim" } },
