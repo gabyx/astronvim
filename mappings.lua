@@ -81,15 +81,15 @@ local maps = {
     },
 
     -- Gomove plugin
-    -- ["<S-h>"] = { "<Plug>GoNSMLeft" },
-    -- ["<D-j>"] = { "<Plug>GoNSMDown" },
-    -- ["<S-k>"] = { "<Plug>GoNSMUp" },
-    -- ["<S-l>"] = { "<Plug>GoNSMRight" },
-    -- ["<D-j>"] = { "<Plug>GoNSMDown" },
-    -- ["<C-h>"] = { "<Plug>GoNSDLeft" },
-    -- ["<C-j>"] = { "<Plug>GoNSDDown" }
-    -- ["<C-k>"] = { "<Plug>GoNSDUp" },
-    -- ["<C-l>"] = { "<Plug>GoNSDRight" },
+    --
+    ["<S-Left>"] = { "<Plug>GoNSMLeft", remap = false },
+    ["<S-Up>"] = { "<Plug>GoNSMUp", remap = false },
+    ["<S-Down>"] = { "<Plug>GoNSMDown", remap = false },
+    ["<S-Right>"] = { "<Plug>GoNSMRight", remap = false },
+    ["<S-C-Left>"] = { "<Plug>GoNSDLeft", remap = false },
+    ["<S-C-Down>"] = { "<Plug>GoNSDDown", remap = false },
+    ["<S-C-Up>"] = { "<Plug>GoNSDUp", remap = false },
+    ["<S-C-Right>"] = { "<Plug>GoNSDRight", remap = false },
   },
 
   v = {
@@ -129,14 +129,14 @@ local maps = {
   },
 
   x = {
-    -- ["<C-h>"] = { "<Plug>GoVSDLeft" },
-    -- ["<C-j>"] = { "<Plug>GoVSDDown" },
-    -- ["<C-k>"] = { "<Plug>GoVSDUp" },
-    -- ["<C-l>"] = { "<Plug>GoVSDRight" },
-    -- ["<S-h>"] = { "<Plug>GoVSMLeft" },
-    -- ["<S-j>"] = { "<Plug>GoVSMDown" },
-    -- ["<S-k>"] = { "<Plug>GoVSMUp" },
-    -- ["<S-l>"] = { "<Plug>GoVSMRight" },
+    ["<S-Left>"] = { "<Plug>GoVSMLeft", remap = false },
+    ["<S-Down>"] = { "<Plug>GoVSMDown", remap = false },
+    ["<S-Up>"] = { "<Plug>GoVSMUp", remap = false },
+    ["<S-Right>"] = { "<Plug>GoVSMRight", remap = false },
+    ["<S-C-Left>"] = { "<Plug>GoVSDLeft", remap = false },
+    ["<S-C-Down>"] = { "<Plug>GoVSDDown", remap = false },
+    ["<S-C-Up>"] = { "<Plug>GoVSDUp", remap = false },
+    ["<S-C-Right>"] = { "<Plug>GoVSDRight", remap = false },
   },
 
   t = {
@@ -146,8 +146,9 @@ local maps = {
 }
 
 -- Testing modifiers.
--- local map = vim.keymap.set
+local map = vim.keymap.set
 -- map("n", "<D-h>", ":lua print('D-h')<CR>", { remap = false })
+-- map("n", "<C-A-H>", ":lua print('C-A-H')<CR>", { remap = false })
 -- map("n", "<M-h>", ":lua print('M-h')<CR>", { remap = false })
 -- map("n", "<T-h>", ":lua print('T-h')<CR>", { remap = false })
 
