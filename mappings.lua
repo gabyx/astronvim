@@ -46,6 +46,8 @@ local maps = {
       desc = "Show Undo Tree",
     },
 
+    ["<leader>gD"] = { ":DiffviewOpen<CR>" },
+
     -- Select and move inside AST.
     ["<leader>ba"] = { ":<C-U>lua require('tsht').nodes()<CR>", desc = "Select in AST." },
     ["<leader>bA"] = { ":<C-U>lua require('tsht').move()<CR>", desc = "Move in AST." },
@@ -59,6 +61,7 @@ local maps = {
 
     -- LSP commands.
     ["<leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
+    ["<leader>lw"] = { ":Telescope lsp_dyanmic_workspace_symbols<CR>", desc = "Search workspace symbols." },
 
     -- File commands.
     ["<leader>b."] = { ":echo expand('%:p')<cr>", desc = "Show Buffer Path" },
@@ -120,8 +123,8 @@ local maps = {
     -- Harpoon commands.
     ["<leader>jf"] = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = "Harpoon list." },
     ["<leader>jj"] = { ':lua require("harpoon.mark").add_file()<CR>', desc = "Add to harpoon list." },
-    ["<S-j>"] = { ':lua require("harpoon.ui").nav_next()<CR>', desc = "Next harpoon file." },
-    ["<S-k>"] = { ':lua require("harpoon.ui").nav_prev()<CR>', desc = "Previous harpoon file." },
+    ["<S-h>"] = { ':lua require("harpoon.ui").nav_next()<CR>', desc = "Next harpoon file." },
+    ["<S-l>"] = { ':lua require("harpoon.ui").nav_prev()<CR>', desc = "Previous harpoon file." },
 
     -- Hop commands.
     ["<leader>jk"] = { ":HopWord<CR>", desc = "Hop words." },

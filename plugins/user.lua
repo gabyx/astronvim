@@ -142,4 +142,11 @@ return {
       lookup_parents = false, -- Lookup config files in parent directories
     },
   },
+  -- Diff view plugin.
+  { lazy = true, "sindrets/diffview.nvim", cmd = { "DiffviewOpen" } },
+  -- Trouble shows all diagnostics in a common window
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 }
