@@ -27,18 +27,21 @@ return {
       },
     },
   },
-  -- Use mason-null-ls to configure Formatters/Linter installation for null-ls sources
+  -- check
   {
     "jay-babu/mason-null-ls.nvim",
-    -- overrides `require("mason-null-ls").setup(...)`
-    opts = {
-      ensure_installed = {
-        "codespell",
-      },
-      automatic_installation = false,
-      automatic_setup = true, -- Recommended, but optional
+    dependencies = {
+      -- first load null-ls
+      "jose-elias-alvarez/null-ls.nvim",
     },
-  }, --
+    config = function()
+      print "mason"
+      require("mason-null-ls").setup {
+        ensure_installed = {},
+        automatic_installation = true,
+      }
+    end,
+  },
   -- Use mason-nvim-dap to configure debug adapters.
   {
     "jay-babu/mason-nvim-dap.nvim",

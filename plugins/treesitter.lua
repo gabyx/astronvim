@@ -18,6 +18,7 @@ return {
         "cpp",
         "dockerfile",
         "bash",
+        "starlark",
         "markdown",
         "markdown_inline",
       },
@@ -50,5 +51,8 @@ return {
     },
   },
   { "mfussenegger/nvim-treehopper", dependencies = { "smoka7/hop.nvim" } },
-  { "nvim-treesitter/nvim-treesitter-context", lazy = false },
+  -- Context lines to see on top where we are.
+  { "nvim-treesitter/nvim-treesitter-context", lazy = false, opts = {
+    multiline_threshold = 10,
+  } },
 }

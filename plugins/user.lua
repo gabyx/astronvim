@@ -1,22 +1,143 @@
 return {
   -- Monokai Theme.
   {
-    "tanvirtin/monokai.nvim",
+    "AlexvZyl/nordic.nvim",
+    lazy = false,
+    priority = 1000,
+
+    config = function()
+      require("nordic").setup {
+
+        -- This callback can be used to override the colors used in the palette.
+        on_palette = function(palette)
+          palette.black0 = "#191D24"
+          palette.black1 = "#1E222A"
+          palette.black2 = "#222630"
+
+          palette.gray0 = "#242933"
+          palette.gray1 = "#465062"
+          palette.gray2 = "#555f77"
+          palette.gray3 = "#949eb3"
+
+          palette.white0 = "#DADEE7"
+          palette.white1 = "#D8DEE9"
+          palette.white2 = "#E5E9F0"
+
+          palette.blue0 = "#5E81AC"
+          palette.blue1 = "#81A1C1"
+          palette.blue2 = "#88C0D0"
+
+          palette.cyan = {
+            base = "#99c2c1",
+            bright = "#99c2c1",
+            dim = "#99c2c1",
+          }
+
+          palette.red = {
+            base = "#d62f3f",
+            bright = "#d62f3f",
+            dim = "#d62f3f",
+          }
+          palette.orange = {
+            base = "#e36a45",
+            bright = "#e36a45",
+            dim = "#e36a45",
+          }
+          palette.yellow = {
+            base = "#e5f56b",
+            bright = "#e5f56b",
+            dim = "#e5f56b",
+          }
+          palette.green = {
+            base = "#7cc243",
+            bright = "#7cc243",
+            dim = "#7cc243",
+          }
+          palette.magenta = {
+            base = "#b76ca9",
+            bright = "#b76ca9",
+            dim = "#b76ca9",
+          }
+
+          return palette
+        end,
+        -- Enable bold keywords.
+        bold_keywords = true,
+        -- Enable italic comments.
+        italic_comments = true,
+        -- Enable general editor background transparency.
+        transparent_bg = false,
+        -- Enable brighter float border.
+        bright_border = true,
+        -- Reduce the overall amount of blue in the theme (diverges from base Nord).
+        reduced_blue = true,
+        -- Swap the dark background with the normal one.
+        swap_backgrounds = false,
+        -- Override the styling of any highlight group.
+        override = {},
+        -- Cursorline options.  Also includes visual/selection.
+        cursorline = {
+          -- Bold font in cursorline.
+          bold = false,
+          -- Bold cursorline number.
+          bold_number = true,
+          -- Available styles: 'dark', 'light'.
+          theme = "dark",
+          -- Blending the cursorline bg with the buffer bg.
+          blend = 0.9,
+        },
+        noice = {
+          -- Available styles: `classic`, `flat`.
+          style = "flat",
+        },
+        telescope = {
+          -- Available styles: `classic`, `flat`.
+          style = "flat",
+        },
+        leap = {
+          -- Dims the backdrop when using leap.
+          dim_backdrop = false,
+        },
+        ts_context = {
+          -- Enables dark background for treesitter-context window
+          dark_background = true,
+        },
+      }
+    end,
   },
+  -- {
+  --   "tanvirtin/monokai.nvim",
+  --   lazy = false,
+  --   config = function(_, _)
+  --     local monokai = require "monokai"
+  --     local palette = vim.tbl_deep_extend("force", monokai.pro, {
+  --       yellow = "#89f505",
+  --       orange = "#f5b505",
+  --       green = "#05ad1e",
+  --     })
+  --     monokai.setup {
+  --       palette = palette,
+  --       custom_hlgroups = {
+  --         Visual = { bg = palette.yellow },
+  --         -- TreesitterContext = { bg = palette.purple },
+  --         -- TreesitterContextLineNumber = { fg = palette.base7 }, -- 30% darker based on LineNr
+  --         -- TreesitterContextBottom = { gui = "underline", sp = palette.purple },
+  --       },
+  --     }
+  --   end,
+  -- },
   -- Automatically configures lua-language-server for your Neovim config,
   -- Auto session management.
   {
     "rmagatti/auto-session",
     lazy = false,
-    config = function()
-      require("auto-session").setup {
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
-        auto_session_enabled = true,
-        auto_save_enabled = true,
-        auto_restore_enabled = true,
-      }
-    end,
+    opts = {
+      log_level = "error",
+      auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+      auto_session_enabled = true,
+      auto_save_enabled = true,
+      auto_restore_enabled = true,
+    },
   },
   {
     "simrat39/rust-tools.nvim",

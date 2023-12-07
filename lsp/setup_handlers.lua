@@ -14,4 +14,6 @@ return { -- add custom handler
     opts.root_dir = util.root_pattern(unpack(root_files))
     lspconfig[server].setup(opts)
   end,
+
+  rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end,
 }
