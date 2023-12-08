@@ -1,6 +1,8 @@
 # AstroVim Config
 
-This follows the instructions found at <https://astronvim.github.io/configuration/manage_user_config>. When setting up a new system do the following.
+This follows the instructions found
+at <https://astronvim.github.io/configuration/manage_user_config>.
+When setting up a new system do the following.
 
 ## Requirements
 

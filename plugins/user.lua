@@ -1,131 +1,50 @@
 return {
-  -- Monokai Theme.
   {
-    "AlexvZyl/nordic.nvim",
+    "gabyx/onedark.nvim",
+    branch = "feature/my-colors",
     lazy = false,
     priority = 1000,
+    config = function(_, _)
+      require("onedark").setup {
+        -- Main options --
+        style = "darker", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+        transparent = false, -- Show/hide background
+        term_colors = true, -- Change terminal color as per the selected theme style
+        ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+        cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
-    config = function()
-      require("nordic").setup {
+        -- toggle theme style ---
+        toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+        toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
 
-        -- This callback can be used to override the colors used in the palette.
-        on_palette = function(palette)
-          palette.black0 = "#191D24"
-          palette.black1 = "#1E222A"
-          palette.black2 = "#222630"
-
-          palette.gray0 = "#242933"
-          palette.gray1 = "#465062"
-          palette.gray2 = "#555f77"
-          palette.gray3 = "#949eb3"
-
-          palette.white0 = "#DADEE7"
-          palette.white1 = "#D8DEE9"
-          palette.white2 = "#E5E9F0"
-
-          palette.blue0 = "#5E81AC"
-          palette.blue1 = "#81A1C1"
-          palette.blue2 = "#88C0D0"
-
-          palette.cyan = {
-            base = "#99c2c1",
-            bright = "#99c2c1",
-            dim = "#99c2c1",
-          }
-
-          palette.red = {
-            base = "#d62f3f",
-            bright = "#d62f3f",
-            dim = "#d62f3f",
-          }
-          palette.orange = {
-            base = "#e36a45",
-            bright = "#e36a45",
-            dim = "#e36a45",
-          }
-          palette.yellow = {
-            base = "#e5f56b",
-            bright = "#e5f56b",
-            dim = "#e5f56b",
-          }
-          palette.green = {
-            base = "#7cc243",
-            bright = "#7cc243",
-            dim = "#7cc243",
-          }
-          palette.magenta = {
-            base = "#b76ca9",
-            bright = "#b76ca9",
-            dim = "#b76ca9",
-          }
-
-          return palette
-        end,
-        -- Enable bold keywords.
-        bold_keywords = true,
-        -- Enable italic comments.
-        italic_comments = true,
-        -- Enable general editor background transparency.
-        transparent_bg = false,
-        -- Enable brighter float border.
-        bright_border = true,
-        -- Reduce the overall amount of blue in the theme (diverges from base Nord).
-        reduced_blue = true,
-        -- Swap the dark background with the normal one.
-        swap_backgrounds = false,
-        -- Override the styling of any highlight group.
-        override = {},
-        -- Cursorline options.  Also includes visual/selection.
-        cursorline = {
-          -- Bold font in cursorline.
-          bold = false,
-          -- Bold cursorline number.
-          bold_number = true,
-          -- Available styles: 'dark', 'light'.
-          theme = "dark",
-          -- Blending the cursorline bg with the buffer bg.
-          blend = 0.9,
+        -- Change code style ---
+        -- Options are italic, bold, underline, none
+        -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+        code_style = {
+          comments = "italic",
+          keywords = "bold,italic",
+          functions = "none",
+          strings = "none",
+          variables = "none",
         },
-        noice = {
-          -- Available styles: `classic`, `flat`.
-          style = "flat",
+        -- Lualine options --
+        lualine = {
+          transparent = false, -- lualine center bar transparency
         },
-        telescope = {
-          -- Available styles: `classic`, `flat`.
-          style = "flat",
-        },
-        leap = {
-          -- Dims the backdrop when using leap.
-          dim_backdrop = false,
-        },
-        ts_context = {
-          -- Enables dark background for treesitter-context window
-          dark_background = true,
+
+        -- Custom Highlights --
+        colors = {}, -- Override default colors
+        highlights = {}, -- Override highlight groups
+
+        -- Plugins Config --
+        diagnostics = {
+          darker = true, -- darker colors for diagnostic
+          undercurl = true, -- use undercurl instead of underline for diagnostics
+          background = true, -- use background color for virtual text
         },
       }
     end,
   },
-  -- {
-  --   "tanvirtin/monokai.nvim",
-  --   lazy = false,
-  --   config = function(_, _)
-  --     local monokai = require "monokai"
-  --     local palette = vim.tbl_deep_extend("force", monokai.pro, {
-  --       yellow = "#89f505",
-  --       orange = "#f5b505",
-  --       green = "#05ad1e",
-  --     })
-  --     monokai.setup {
-  --       palette = palette,
-  --       custom_hlgroups = {
-  --         Visual = { bg = palette.yellow },
-  --         -- TreesitterContext = { bg = palette.purple },
-  --         -- TreesitterContextLineNumber = { fg = palette.base7 }, -- 30% darker based on LineNr
-  --         -- TreesitterContextBottom = { gui = "underline", sp = palette.purple },
-  --       },
-  --     }
-  --   end,
-  -- },
   -- Automatically configures lua-language-server for your Neovim config,
   -- Auto session management.
   {

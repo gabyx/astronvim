@@ -23,7 +23,7 @@ local config = {
     -- },
   },
   -- Set colorscheme to use
-  colorscheme = "nordic",
+  colorscheme = "onedark",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {

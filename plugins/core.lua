@@ -38,7 +38,7 @@ return {
       },
     },
   },
-  -- Customize status bar
+  -- Customize stats bar
   {
     "rebelot/heirline.nvim",
     opts = function(_, opts)

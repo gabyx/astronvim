@@ -12,7 +12,7 @@ return {
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
       config.sources = {
         -- Set diagnostics.
-        null_ls.builtins.diagnostics.codespell,
+        -- null_ls.builtins.diagnostics.codespell,
       }
       return config -- return final config table
     end,

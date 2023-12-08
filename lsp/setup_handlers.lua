@@ -12,6 +12,7 @@ return { -- add custom handler
     local util = require "lspconfig.util"
     local lspconfig = require "lspconfig"
     opts.root_dir = util.root_pattern(unpack(root_files))
+
     lspconfig[server].setup(opts)
   end,
 

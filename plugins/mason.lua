@@ -7,24 +7,13 @@ return {
     },
   },
   -- Use mason-lspconfig to configure LSP installations
+  -- Do only use Mason for Lsp which can be installed independent of the system.
+  -- NixOS its better to install the packages.
+  -- Some LSPs need nix-ld etc to make the binaries work.
   {
     "williamboman/mason-lspconfig.nvim",
-    -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
-      ensure_installed = {
-        "pyright",
-        "rust_analyzer",
-        "golangci_lint_ls",
-        "clangd",
-        "gopls",
-        "bashls",
-        "dockerls",
-        "texlab",
-        "jsonls",
-        "yamlls",
-        "rnix",
-        "lua_ls",
-      },
+      ensure_installed = {},
     },
   },
   -- check
@@ -35,9 +24,8 @@ return {
       "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
-      print "mason"
       require("mason-null-ls").setup {
-        ensure_installed = {},
+        ensure_installed = { "codespell" },
         automatic_installation = true,
       }
     end,
@@ -47,37 +35,10 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
-      ensure_installed = {
-        "python",
-        "delve",
-        "codelldb",
-        "bash-debug-adapter",
-        "cpptools",
-      },
+      ensure_installed = {},
       automatic_setup = true,
     },
   },
   -- Debugger setup project wise.
   { "ldelossa/nvim-dap-projects" },
-
-  -- CPP clangd extension.
-  {
-    "p00f/clangd_extensions.nvim",
-    pin = true,
-    init = function()
-      -- load clangd extensions when clangd attaches
-      local augroup = vim.api.nvim_create_augroup("clangd_extensions", { clear = true })
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = augroup,
-        desc = "Load 'clangd_extensions' with 'clangd'",
-        callback = function(args)
-          if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
-            require "clangd_extensions"
-            -- add more `clangd` setup here as needed such as loading autocmds
-            vim.api.nvim_del_augroup_by_id(augroup) -- delete auto command since it only needs to happen once
-          end
-        end,
-      })
-    end,
-  }, -- install lsp plugin
 }
