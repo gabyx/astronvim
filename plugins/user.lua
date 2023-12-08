@@ -2,15 +2,20 @@ return {
   -- Automatically configures lua-language-server for your Neovim config,
   -- Auto session management.
   {
-    "rmagatti/auto-session",
+    "stevearc/resession.nvim",
     lazy = false,
-    opts = {
-      log_level = "error",
-      auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
-      auto_session_enabled = true,
-      auto_save_enabled = true,
-      auto_restore_enabled = true,
-    },
+    priority = 1000,
+    config = function(_, opts_in)
+      local resession = require "resession"
+      local opts = vim.tbl_deep_extend("force", opts_in, {
+        autosave = {
+          enabled = true,
+          notify = true,
+          interval = 60,
+        },
+      })
+      resession.setup(opts)
+    end,
   },
   {
     "simrat39/rust-tools.nvim",
