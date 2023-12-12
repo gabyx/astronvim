@@ -5,6 +5,7 @@ vim.filetype.add {
     ["Tiltfile"] = "starlark",
     ["justfile"] = "make",
   },
+  pattern = {},
 }
 
 -- Load autocmds

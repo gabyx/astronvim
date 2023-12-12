@@ -33,7 +33,6 @@ local function setup_resession()
     local branch = vim.trim(vim.fn.system "git branch --show-current")
 
     if vim.v.shell_error == 0 then name = name .. branch end
-    -- name, _ = string.gsub(name, "/", "-")
     return name
   end
 
@@ -58,8 +57,8 @@ local function setup_resession()
     callback = function()
       local buf_utils = require "astronvim.utils.buffer"
       if buf_utils.is_valid_session() then
-        resession.save("Last Session", { notify = true })
-        resession.save(get_session_name(), { dir = "dirsession", notify = true })
+        resession.save("Last Session", { notify = false })
+        resession.save(get_session_name(), { dir = "dirsession", notify = false })
       end
     end,
   })
