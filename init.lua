@@ -55,9 +55,9 @@ local config = {
     local opt = vim.opt
 
     -- Load autocmds
-    require "user.autocmds"
+    require("user.autocmds")
     -- Load refactoring Telescope extension
-    require("telescope").load_extension "refactoring"
+    require("telescope").load_extension("refactoring")
   end,
 }
 

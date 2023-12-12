@@ -12,4 +12,5 @@ return {
   "rnix",
   "marksman",
   "lua_ls",
+  "tilt_ls",
 }

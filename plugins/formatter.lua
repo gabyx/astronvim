@@ -3,9 +3,9 @@ return {
   cmd = { "Format", "FormatWrite" },
   lazy = false,
   config = function(_, opts)
-    local fmt = require "formatter"
-    local fmts = require "formatter.defaults"
-    local fs = require "formatter.filetypes"
+    local fmt = require("formatter")
+    local fmts = require("formatter.defaults")
+    local fs = require("formatter.filetypes")
 
     opts = {
       logging = true,

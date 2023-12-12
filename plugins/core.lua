@@ -43,19 +43,19 @@ return {
   {
     "rebelot/heirline.nvim",
     opts = function(_, opts)
-      local status = require "astronvim.utils.status"
+      local status = require("astronvim.utils.status")
       opts.statusline = {
         -- statusline
         hl = { fg = "fg", bg = "bg" },
-        status.component.mode {
+        status.component.mode({
           mode_text = { padding = { left = 1, right = 1 } },
-        }, -- add the mode text
+        }), -- add the mode text
         status.component.git_branch(),
-        status.component.file_info {
+        status.component.file_info({
           filetype = {},
           filename = false,
           file_modified = false,
-        },
+        }),
         status.component.git_diff(),
         status.component.diagnostics(),
         status.component.fill(),
@@ -81,22 +81,22 @@ return {
     opts = function(_, opts)
       -- opts parameter is the default options table
       -- the function is lazy loaded so cmp is able to be required
-      local cmp = require "cmp"
+      local cmp = require("cmp")
       -- modify the sources part of the options table
-      opts.sources = cmp.config.sources {
+      opts.sources = cmp.config.sources({
         { name = "nvim_lsp", priority = 1000 },
         { name = "luasnip", priority = 750 },
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
         { name = "emoji", priority = 700 }, -- add new source
-      }
+      })
 
       opts.sorting = {
         comparators = {
           cmp.config.compare.offset,
           cmp.config.compare.exact,
           cmp.config.compare.recently_used,
-          require "clangd_extensions.cmp_scores",
+          require("clangd_extensions.cmp_scores"),
           cmp.config.compare.kind,
           cmp.config.compare.sort_text,
           cmp.config.compare.length,

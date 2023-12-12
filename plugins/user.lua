@@ -6,11 +6,11 @@ return {
     lazy = false,
     priority = 1000,
     config = function(_, opts_in)
-      local resession = require "resession"
+      local resession = require("resession")
       local opts = vim.tbl_deep_extend("force", opts_in, {
         autosave = {
           enabled = true,
-          notify = true,
+          notify = false,
           interval = 60,
         },
       })
@@ -21,7 +21,7 @@ return {
     "simrat39/rust-tools.nvim",
     name = "rust-tools",
     config = function(_, opts)
-      local rt = require "rust-tools"
+      local rt = require("rust-tools")
       opts["server"] = {
         on_attach = function(_, bufnr)
           -- Hover actions
@@ -58,7 +58,9 @@ return {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
     lazy = false,
   },
   -- Cpp plugins
@@ -133,7 +135,7 @@ return {
       config_files = { ".nvim/nvim.lua" },
 
       -- Where the plugin keeps files data
-      hashfile = vim.fn.stdpath "data" .. "/nvim-config-local",
+      hashfile = vim.fn.stdpath("data") .. "/nvim-config-local",
 
       autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
       commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)

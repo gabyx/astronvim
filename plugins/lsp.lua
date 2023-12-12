@@ -12,7 +12,7 @@ return { -- CPP clangd extension.
         desc = "Load 'clangd_extensions' with 'clangd'",
         callback = function(args)
           if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
-            require "clangd_extensions"
+            require("clangd_extensions")
             -- add more `clangd` setup here as needed such as loading autocmds
             vim.api.nvim_del_augroup_by_id(augroup) -- delete auto command since it only needs to happen once
           end
@@ -22,7 +22,7 @@ return { -- CPP clangd extension.
 
     opts = function()
       return {
-        server = require("astronvim.utils.lsp").config "clangd",
+        server = require("astronvim.utils.lsp").config("clangd"),
         extensions = { autoSetHints = false },
       }
     end,

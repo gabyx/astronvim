@@ -9,8 +9,8 @@ return {
     -- The first parameter is the plugin specification
     -- The second is the table of options as set up in Lazy with the `opts` key
     opts = function(plugin, opts)
-      local actions = require "telescope.actions"
-      local trouble = require "trouble.providers.telescope"
+      local actions = require("telescope.actions")
+      local trouble = require("trouble.providers.telescope")
 
       return require("astronvim.utils").extend_tbl(opts, {
         defaults = {
@@ -43,11 +43,11 @@ return {
     end,
 
     config = function(plugin, opts)
-      require "plugins.configs.telescope"(_, opts)
-      local telescope = require "telescope"
+      require("plugins.configs.telescope")(_, opts)
+      local telescope = require("telescope")
 
       -- telescope.load_extension "projects"
-      telescope.load_extension "media_files"
+      telescope.load_extension("media_files")
     end,
   },
 }

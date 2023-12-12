@@ -9,12 +9,28 @@ return { -- add custom handler
       "pyrightconfig.json",
     }
 
-    local util = require "lspconfig.util"
-    local lspconfig = require "lspconfig"
+    local util = require("lspconfig.util")
+    local lspconfig = require("lspconfig")
     opts.root_dir = util.root_pattern(unpack(root_files))
 
     lspconfig[server].setup(opts)
   end,
 
-  rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end,
+  rust_analyzer = function(_, opts)
+    require("rust-tools").setup({ server = opts })
+  end,
+
+  tilt_ls = function(server, opts)
+    -- print(vim.inspect(server), vim.inspect(opts))
+    local lspconfig = require("lspconfig")
+    opts.filetypes = { "tiltfile" }
+
+    opts.on_attach = function(client, bufnr)
+      if client.name == "tilt_ls" then
+        vim.api.nvim_buf_set_option(bufnr, "filetype", "starlark")
+      end
+    end
+
+    lspconfig[server].setup(opts)
+  end,
 }

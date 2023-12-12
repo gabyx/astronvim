@@ -18,9 +18,9 @@ local maps = {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(
-          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-        )
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -42,7 +42,9 @@ local maps = {
 
     -- Undo Tree toggle.
     ["<leader>bu"] = {
-      function() vim.cmd.UndotreeToggle() end,
+      function()
+        vim.cmd.UndotreeToggle()
+      end,
       desc = "Show Undo Tree",
     },
 

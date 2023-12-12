@@ -16,7 +16,7 @@ return {
     },
   },
   disabled = { -- disable formatting capabilities for the listed language servers
-    -- "lua_ls",
+    "lua_ls",
   },
   timeout_ms = 6000, -- default format timeout
   -- filter = function(client) -- fully override the default formatting function

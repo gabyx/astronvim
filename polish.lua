@@ -1,14 +1,14 @@
 -- Filetype mappings which are not autodetected.
-vim.filetype.add {
+vim.filetype.add({
   extension = {},
   filename = {
-    ["Tiltfile"] = "starlark",
+    ["Tiltfile"] = "tiltfile",
     ["justfile"] = "make",
   },
   pattern = {},
-}
+})
 
 -- Load autocmds
-require "user.autocmds"
+require("user.autocmds")
 
 require("config-local").source()

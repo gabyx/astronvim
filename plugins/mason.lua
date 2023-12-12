@@ -24,10 +24,10 @@ return {
       "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
-      require("mason-null-ls").setup {
+      require("mason-null-ls").setup({
         ensure_installed = { "codespell" },
         automatic_installation = true,
-      }
+      })
     end,
   },
   -- Use mason-nvim-dap to configure debug adapters.

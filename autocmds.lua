@@ -21,18 +21,20 @@ autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 })
 
 local function setup_resession()
-  local notify = require "notify"
-  local resession = require "resession"
+  local notify = require("notify")
+  local resession = require("resession")
 
   -- Disable astronvim resession save autocmds
-  vim.api.nvim_del_augroup_by_name "resession_auto_save"
+  vim.api.nvim_del_augroup_by_name("resession_auto_save")
 
   -- Have one session for each branch.
   local function get_session_name()
     local name = vim.fn.getcwd()
-    local branch = vim.trim(vim.fn.system "git branch --show-current")
+    local branch = vim.trim(vim.fn.system("git branch --show-current"))
 
-    if vim.v.shell_error == 0 then name = name .. branch end
+    if vim.v.shell_error == 0 then
+      name = name .. branch
+    end
     return name
   end
 
@@ -46,7 +48,7 @@ local function setup_resession()
 
         -- See the bug https://github.com/stevearc/resession.nvim/issues/44
         -- We retirgger all buffers here such that LSPs get attached.
-        vim.cmd.doautoall "BufReadPost"
+        vim.cmd.doautoall("BufReadPost")
       end
     end,
   })
@@ -55,7 +57,7 @@ local function setup_resession()
     desc = "Save session on close",
     group = augroup("resession_auto_save", { clear = false }),
     callback = function()
-      local buf_utils = require "astronvim.utils.buffer"
+      local buf_utils = require("astronvim.utils.buffer")
       if buf_utils.is_valid_session() then
         resession.save("Last Session", { notify = false })
         resession.save(get_session_name(), { dir = "dirsession", notify = false })
