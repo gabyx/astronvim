@@ -40,6 +40,9 @@ return {
             modify_hl_groups = function(hl, c) -- modify_hl_groups function allows you to modify hl groups,
               hl.Keyword.fg = c.keyword_color
               hl.Keyword.bold = true
+
+              -- Do not highlight the scope identation.
+              hl.IblScope = { fg = c.ui.none_text }
             end,
           },
         },
