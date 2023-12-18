@@ -36,7 +36,7 @@ return {
           init_selection = "<CR>",
           -- scope_incremental = "<CR>",
           node_incremental = "<CR>",
-          node_decremental = "<C-CR>",
+          node_decremental = "<BS>",
         },
       },
       rainbow = {

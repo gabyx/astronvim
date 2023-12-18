@@ -41,7 +41,7 @@ return {
               hl.Keyword.fg = c.keyword_color
               hl.Keyword.bold = true
 
-              -- Do not highlight the scope identation.
+              -- Do not highlight the scope indentation.
               hl.IblScope = { fg = c.ui.none_text }
             end,
           },

@@ -8,7 +8,8 @@ vim.filetype.add({
   pattern = {},
 })
 
--- Load autocmds
+-- Load autocmds.
 require("user.autocmds")
 
+-- Load local project configuration.
 require("config-local").source()

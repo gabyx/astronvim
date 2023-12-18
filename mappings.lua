@@ -38,7 +38,7 @@ local maps = {
     -- Search Git files.
     ["<leader>fg"] = { ":Telescope git_files<cr>", desc = "Find Git files" },
     -- Save all files.
-    ["<leader>wa>"] = { ":wa!<cr>", desc = "Save all files" },
+    ["<leader>wa"] = { ":wa!<cr>", desc = "Save all files" },
 
     -- Undo Tree toggle.
     ["<leader>bu"] = {
@@ -48,11 +48,21 @@ local maps = {
       desc = "Show Undo Tree",
     },
 
-    ["<leader>gD"] = { ":DiffviewOpen<CR>" },
+    ["<leader>gD"] = { ":DiffviewOpen<CR>", desc = "Open Diffview." },
 
     -- Select and move inside AST.
-    ["<leader>ba"] = { ":<C-U>lua require('tsht').nodes()<CR>", desc = "Select in AST." },
-    ["<leader>bA"] = { ":<C-U>lua require('tsht').move()<CR>", desc = "Move in AST." },
+    ["<leader>ba"] = {
+      function()
+        require("tsht").nodes()
+      end,
+      desc = "Select in AST.",
+    },
+    ["<leader>bA"] = {
+      function()
+        require("tsht").move()
+      end,
+      desc = "Move in AST.",
+    },
 
     -- UI commands.
     ["<leader>uT"] = { ":TSContextToggle<cr>", desc = "Treesitter Context" },
@@ -64,6 +74,10 @@ local maps = {
     -- LSP commands.
     ["<leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
     ["<leader>lw"] = { ":Telescope lsp_dyanmic_workspace_symbols<CR>", desc = "Search workspace symbols." },
+    ["<leader>lo"] = { ":vsplit ~/.local/state/nvim/lsp.log", desc = "LSP log." },
+
+    -- Debug Adapter commands.
+    ["<leader>dl"] = { ":vsplit ~/.cache/nvim/dap.log", desc = "DAP log." },
 
     -- File commands.
     ["<leader>b."] = { ":echo expand('%:p')<cr>", desc = "Show Buffer Path" },
@@ -86,7 +100,6 @@ local maps = {
     },
 
     -- Gomove plugin
-    --
     ["<S-Left>"] = { "<Plug>GoNSMLeft", remap = false },
     ["<S-Up>"] = { "<Plug>GoNSMUp", remap = false },
     ["<S-Down>"] = { "<Plug>GoNSMDown", remap = false },
@@ -95,6 +108,9 @@ local maps = {
     ["<S-C-Down>"] = { "<Plug>GoNSDDown", remap = false },
     ["<S-C-Up>"] = { "<Plug>GoNSDUp", remap = false },
     ["<S-C-Right>"] = { "<Plug>GoNSDRight", remap = false },
+
+    -- Repeat macro
+    -- ["<C-q>"] = { "@q", remap = false },
   },
 
   v = {
@@ -108,6 +124,12 @@ local maps = {
     -- No clipboard overwrite (reselect and yank again)
     -- when pasting in visual mode.
     ["p"] = { "pgvy", remap = false },
+
+    -- Refactoring plugin.
+    ["<leader>r"] = { name = "Refactoring" },
+    ["<leader>rr"] = {
+      "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
+    },
 
     -- Apply commands.
     ["<leader>a"] = { name = "Apply Commands and Macros" },

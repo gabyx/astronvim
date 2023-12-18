@@ -23,6 +23,7 @@ autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 local function setup_resession()
   local notify = require("notify")
   local resession = require("resession")
+  local buf_utils = require("astronvim.utils.buffer")
 
   -- Disable astronvim resession save autocmds
   vim.api.nvim_del_augroup_by_name("resession_auto_save")
@@ -40,7 +41,7 @@ local function setup_resession()
 
   autocmd("VimEnter", {
     desc = "Save restore on enter",
-    group = augroup("resession_auto_save", { clear = true }),
+    group = augroup("resession_auto_save_restore", { clear = true }),
     callback = function()
       -- Only load the session if nvim was started with no args
       if vim.fn.argc(-1) == 0 then
@@ -50,14 +51,24 @@ local function setup_resession()
         -- We retirgger all buffers here such that LSPs get attached.
         vim.cmd.doautoall("BufReadPost")
       end
+
+      -- Delete the current autocmd.
+      return true
+    end,
+  })
+
+  -- Stupid workaround for https://github.com/neovim/neovim/issues/21856
+  -- Which crashes vim on exit with VimLeavePre.
+  vim.api.nvim_create_autocmd({ "VimLeave" }, {
+    callback = function()
+      vim.fn.jobstart('notify-send "hello"', { detach = true })
     end,
   })
 
   autocmd("VimLeavePre", {
     desc = "Save session on close",
-    group = augroup("resession_auto_save", { clear = false }),
+    group = augroup("resession_auto_save_restore", { clear = false }),
     callback = function()
-      local buf_utils = require("astronvim.utils.buffer")
       if buf_utils.is_valid_session() then
         resession.save("Last Session", { notify = false })
         resession.save(get_session_name(), { dir = "dirsession", notify = false })
