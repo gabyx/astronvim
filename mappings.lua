@@ -73,7 +73,7 @@ local maps = {
 
     -- LSP commands.
     ["<leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
-    ["<leader>lw"] = { ":Telescope lsp_dyanmic_workspace_symbols<CR>", desc = "Search workspace symbols." },
+    ["<leader>lw"] = { ":Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Search workspace symbols." },
     ["<leader>lo"] = { ":vsplit ~/.local/state/nvim/lsp.log", desc = "LSP log." },
 
     -- Debug Adapter commands.

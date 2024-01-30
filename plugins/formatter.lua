@@ -6,6 +6,7 @@ return {
     local fmt = require("formatter")
     local fmts = require("formatter.defaults")
     local fs = require("formatter.filetypes")
+    local fmtuser = require("user.util.format")
 
     opts = {
       logging = true,
@@ -26,6 +27,10 @@ return {
         astro = { fmts.prettier },
         yaml = { fmts.prettier },
         go = { fs.go.gofmt, fs.go.goimports, fs.go.ogolines },
+        sql = {
+          fmtuser.sql_format,
+        },
+        starlark = { fs.python.black, fs.python.isort },
         python = { fs.python.black, fs.python.isort },
         cpp = { fs.cpp.clangformat },
         sh = { fs.sh.shfmt },
