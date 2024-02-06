@@ -66,6 +66,12 @@ local maps = {
 
     -- UI commands.
     ["<leader>uT"] = { ":TSContextToggle<cr>", desc = "Treesitter Context" },
+    ["<leader>uF"] = {
+      function()
+        require("user.util.format-on-save").toggle_format_on_save()
+      end,
+      desc = "Toggle Format On Save",
+    },
 
     -- Search commands.
     ["<leader>s"] = { name = "Search" },

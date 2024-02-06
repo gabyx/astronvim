@@ -1,6 +1,6 @@
 local M = {}
 
-local config_search = require("user.util.config_search")
+local config_search = require("user.util.config-search")
 local util = require("formatter.util")
 
 M.sql_format = function()

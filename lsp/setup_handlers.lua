@@ -33,4 +33,11 @@ return { -- add custom handler
 
     lspconfig[server].setup(opts)
   end,
+
+  clangd = function(server, opts)
+    local lspconfig = require("lspconfig")
+    -- Set clangd to verbose logging.
+    opts["document_config"]["default_config"]["cmd"] = { "clangd", "--log=verbose" }
+    lspconfig[server].setup(opts)
+  end,
 }

@@ -1,15 +1,13 @@
 return { -- CPP clangd extension.
   {
     "p00f/clangd_extensions.nvim",
-    pin = true,
+    pin = false,
     init = function()
-      table.insert(astronvim.lsp.skip_setup, "clangd")
-
       -- load clangd extensions when clangd attaches
       local augroup = vim.api.nvim_create_augroup("clangd_extensions", { clear = true })
       vim.api.nvim_create_autocmd("LspAttach", {
         group = augroup,
-        desc = "Load 'clangd_extensions' with 'clangd'",
+        desc = "Load clangd_extensions with clangd",
         callback = function(args)
           if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
             require("clangd_extensions")
@@ -18,13 +16,6 @@ return { -- CPP clangd extension.
           end
         end,
       })
-    end,
-
-    opts = function()
-      return {
-        server = require("astronvim.utils.lsp").config("clangd"),
-        extensions = { autoSetHints = false },
-      }
     end,
   }, -- install lsp plugin
 }

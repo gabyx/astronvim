@@ -54,12 +54,6 @@ return {
 
     fmt.setup(opts)
 
-    -- Runs Formatter on save
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      pattern = {
-        "*",
-      },
-      command = "FormatWrite",
-    })
+    require("user.util.format-on-save").enable_format_on_save()
   end,
 }

@@ -1,4 +1,0 @@
-return function()
-  local lspconfig = require "lspconfig"
-  return lspconfig.tilt_ls
-end
