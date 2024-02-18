@@ -45,7 +45,10 @@ local function setup_resession()
     callback = function()
       -- Only load the session if nvim was started with no args
       if vim.fn.argc(-1) == 0 then
-        resession.load(get_session_name(), { dir = "dirsession", silence_errors = true, notify = true })
+        resession.load(
+          get_session_name(),
+          { dir = "dirsession", silence_errors = true, notify = true }
+        )
 
         -- See the bug https://github.com/stevearc/resession.nvim/issues/44
         -- We retirgger all buffers here such that LSPs get attached.
@@ -61,7 +64,10 @@ local function setup_resession()
   -- Which crashes vim on exit with VimLeavePre.
   vim.api.nvim_create_autocmd({ "VimLeave" }, {
     callback = function()
-      vim.fn.jobstart('notify-send "Stupid workaround which lets nvim crash."', { detach = true })
+      vim.fn.jobstart(
+        'notify-send "Stupid workaround which lets nvim crash."',
+        { detach = true }
+      )
     end,
   })
 
@@ -71,7 +77,10 @@ local function setup_resession()
     callback = function()
       if buf_utils.is_valid_session() then
         resession.save("Last Session", { notify = false })
-        resession.save(get_session_name(), { dir = "dirsession", notify = false })
+        resession.save(
+          get_session_name(),
+          { dir = "dirsession", notify = false }
+        )
       end
     end,
   })

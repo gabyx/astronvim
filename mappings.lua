@@ -75,12 +75,21 @@ local maps = {
 
     -- Search commands.
     ["<leader>s"] = { name = "Search" },
-    ["<leader>ss"] = { ":Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy search in current buffer" },
+    ["<leader>ss"] = {
+      ":Telescope current_buffer_fuzzy_find<cr>",
+      desc = "Fuzzy search in current buffer",
+    },
 
     -- LSP commands.
     ["<leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
-    ["<leader>lw"] = { ":Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Search workspace symbols." },
-    ["<leader>lo"] = { ":vsplit ~/.local/state/nvim/lsp.log", desc = "LSP log." },
+    ["<leader>lw"] = {
+      ":Telescope lsp_dynamic_workspace_symbols<CR>",
+      desc = "Search workspace symbols.",
+    },
+    ["<leader>lo"] = {
+      ":vsplit ~/.local/state/nvim/lsp.log",
+      desc = "LSP log.",
+    },
 
     -- Debug Adapter commands.
     ["<leader>dl"] = { ":vsplit ~/.cache/nvim/dap.log", desc = "DAP log." },
@@ -151,10 +160,22 @@ local maps = {
 
   [{ "n", "v" }] = {
     -- Harpoon commands.
-    ["<leader>jf"] = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = "Harpoon list." },
-    ["<leader>jj"] = { ':lua require("harpoon.mark").add_file()<CR>', desc = "Add to harpoon list." },
-    ["<S-h>"] = { ':lua require("harpoon.ui").nav_next()<CR>', desc = "Next harpoon file." },
-    ["<S-l>"] = { ':lua require("harpoon.ui").nav_prev()<CR>', desc = "Previous harpoon file." },
+    ["<leader>jf"] = {
+      ':lua require("harpoon.ui").toggle_quick_menu()<CR>',
+      desc = "Harpoon list.",
+    },
+    ["<leader>jj"] = {
+      ':lua require("harpoon.mark").add_file()<CR>',
+      desc = "Add to harpoon list.",
+    },
+    ["<S-h>"] = {
+      ':lua require("harpoon.ui").nav_next()<CR>',
+      desc = "Next harpoon file.",
+    },
+    ["<S-l>"] = {
+      ':lua require("harpoon.ui").nav_prev()<CR>',
+      desc = "Previous harpoon file.",
+    },
 
     -- Hop commands.
     ["<leader>jk"] = { ":HopWord<CR>", desc = "Hop words." },

@@ -17,7 +17,8 @@ return {
     }
 
     local codespell_args = { "--builtin", "clear,rare,informal,usage,names" }
-    local found = vim.fs.find(".codespell", { upward = true, path = vim.fn.getcwd() })[1]
+    local found =
+      vim.fs.find(".codespell", { upward = true, path = vim.fn.getcwd() })[1]
     if found then
       vim.list_extend(codespell_args, { "-I", found })
     end

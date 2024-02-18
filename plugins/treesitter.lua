@@ -52,9 +52,13 @@ return {
   },
   { "mfussenegger/nvim-treehopper", dependencies = { "smoka7/hop.nvim" } },
   -- Context lines to see on top where we are.
-  { "nvim-treesitter/nvim-treesitter-context", lazy = false, opts = {
-    multiline_threshold = 10,
-  } },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+    opts = {
+      multiline_threshold = 10,
+    },
+  },
 
   -- Justfile treesitter language until in main repo.
   -- {

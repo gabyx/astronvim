@@ -31,7 +31,15 @@ function M.search_parents(startpath, ...)
 
   for _, pattern in ipairs(patterns) do
     local match = M.search_ancestors(startpath, function(path)
-      for _, p in ipairs(vim.fn.glob(lsputil.path.join(lsputil.path.escape_wildcards(path), pattern), true, true)) do
+      for _, p in
+        ipairs(
+          vim.fn.glob(
+            lsputil.path.join(lsputil.path.escape_wildcards(path), pattern),
+            true,
+            true
+          )
+        )
+      do
         if lsputil.path.exists(p) then
           return p
         end
