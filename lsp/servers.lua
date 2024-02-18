@@ -13,4 +13,5 @@ return {
   "marksman",
   "lua_ls",
   "tilt_ls",
+  "r_language_server",
 }
