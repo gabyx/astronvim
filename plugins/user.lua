@@ -140,6 +140,15 @@ return {
     opts = {},
     lazy = false,
   },
+  -- Surround plugin to easily replace brackets and other shit.
+  {
+    "kylechui/nvim-surround",
+    version = "2.1.5", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
   -- Local Project Configuration
   {
     lazy = false,

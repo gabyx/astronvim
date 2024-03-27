@@ -18,9 +18,9 @@ local maps = {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(
-          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-        )
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -42,7 +42,9 @@ local maps = {
 
     -- Undo Tree toggle.
     ["<leader>bu"] = {
-      function() vim.cmd.UndotreeToggle() end,
+      function()
+        vim.cmd.UndotreeToggle()
+      end,
       desc = "Show Undo Tree",
     },
 
@@ -50,18 +52,24 @@ local maps = {
 
     -- Select and move inside AST.
     ["<leader>ba"] = {
-      function() require("tsht").nodes() end,
+      function()
+        require("tsht").nodes()
+      end,
       desc = "Select in AST.",
     },
     ["<leader>bA"] = {
-      function() require("tsht").move() end,
+      function()
+        require("tsht").move()
+      end,
       desc = "Move in AST.",
     },
 
     -- UI commands.
     ["<leader>uT"] = { ":TSContextToggle<cr>", desc = "Treesitter Context" },
     ["<leader>uF"] = {
-      function() require("user.util.format-on-save").toggle_format_on_save() end,
+      function()
+        require("user.util.format-on-save").toggle_format_on_save()
+      end,
       desc = "Toggle Format On Save",
     },
 
@@ -144,31 +152,6 @@ local maps = {
     ["<leader>ac"] = {
       ":!<sh-cmd>",
       desc = "Apply command over the selected lines.",
-    },
-
-    ['<leader>a"'] = {
-      'qhdi"<Esc>pa"<Esc>q',
-      desc = 'Add "..." around selection.',
-    },
-    ["<leader>a'"] = {
-      "qhdi'<Esc>pa'<Esc>q",
-      desc = "Add '...' around selection.",
-    },
-    ["<leader>a("] = {
-      "qhdi(<Esc>pa)<Esc>q",
-      desc = "Add (...) around selection.",
-    },
-    ["<leader>a["] = {
-      "qhdi[<Esc>pa]<Esc>q",
-      desc = "Add [...] around selection.",
-    },
-    ["<leader>a{"] = {
-      "qhdi{<Esc>pa}<Esc>q",
-      desc = "Add {...} around selection.",
-    },
-    ["<leader>a<"] = {
-      "qhdi<<Esc>pa><Esc>q",
-      desc = "Add <...> around selection.",
     },
   },
 
