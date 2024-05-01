@@ -9,9 +9,10 @@ return {
   "texlab",
   "jsonls",
   "yamlls",
-  "rnix",
+  "nil_ls",
   "marksman",
   "lua_ls",
   "tilt_ls",
   "r_language_server",
+  "buck2",
 }
