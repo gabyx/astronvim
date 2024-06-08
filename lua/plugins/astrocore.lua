@@ -40,6 +40,9 @@ return {
         -- Auto-reload files when modified externally
         -- https://unix.stackexchange.com/a/383044
         autoread = true,
+        -- Do not conceal anything in files
+        -- (markdown code blocks as example).
+        conceallevel = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

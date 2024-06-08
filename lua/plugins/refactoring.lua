@@ -8,6 +8,12 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
   }, --
+
   -- Use the python refactoring library
-  { "python-rope/ropevim", run = "pip install ropevim", disable = false },
+  {
+    "python-rope/ropevim",
+    enable = false,
+    run = "pip install ropevim",
+    disable = false,
+  },
 }
