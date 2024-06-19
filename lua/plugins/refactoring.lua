@@ -14,6 +14,5 @@ return {
     "python-rope/ropevim",
     enable = false,
     run = "pip install ropevim",
-    disable = false,
   },
 }

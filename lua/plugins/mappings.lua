@@ -71,7 +71,8 @@ return {
             ":TSContextToggle<cr>",
             desc = "Treesitter Context",
           },
-          ["<Leader>uF"] = {
+
+          ["<Leader>u."] = {
             function()
               require("user.util.format-on-save").toggle_format_on_save()
             end,
