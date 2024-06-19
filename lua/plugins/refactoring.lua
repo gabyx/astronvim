@@ -10,9 +10,9 @@ return {
   }, --
 
   -- Use the python refactoring library
-  {
-    "python-rope/ropevim",
-    enable = false,
-    run = "pip install ropevim",
-  },
+  -- {
+  --   "python-rope/ropevim",
+  --   enable = false,
+  --   run = "pip install ropevim",
+  -- },
 }
