@@ -10,7 +10,7 @@ return {
     -- The second is the table of options as set up in Lazy with the `opts` key
     opts = function(plugin, opts)
       local actions = require("telescope.actions")
-      local trouble = require("trouble.providers.telescope")
+      local trouble = require("trouble.sources.telescope")
 
       return require("astrocore").extend_tbl(opts, {
         defaults = {
@@ -18,13 +18,13 @@ return {
             -- Default mapping does not work for me `<M-q>`.
             i = {
               ["<C-f>"] = actions.send_selected_to_qflist + actions.open_qflist,
-              ["<C-t>"] = trouble.open_with_trouble,
-              ["<C-S-t>"] = trouble.open_selected_with_trouble,
+              ["<C-t>"] = trouble.open,
+              ["<C-S-t>"] = trouble.open,
             },
             n = {
               ["<C-f>"] = actions.send_selected_to_qflist + actions.open_qflist,
-              ["<C-t>"] = trouble.open_with_trouble,
-              ["<C-S-t>"] = trouble.open_selected_with_trouble,
+              ["<C-t>"] = trouble.open,
+              ["<C-S-t>"] = trouble.open,
             },
           },
         },

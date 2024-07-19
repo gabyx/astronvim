@@ -18,13 +18,16 @@ return {
     }
 
     -- Codespell Settings
-    local codespell_args = { "--builtin", "clear,rare,informal,usage,names,code" }
-    local found = vim.fs.find(".codespell", { upward = true, path = vim.fn.getcwd() })[1]
+    local codespell_args =
+      { "--builtin", "clear,rare,informal,usage,names,code" }
+    local found =
+      vim.fs.find(".codespell", { upward = true, path = vim.fn.getcwd() })[1]
     if found then
       vim.list_extend(codespell_args, { "-I", found })
     end
     -- Extend with default args.
-    lint.linters.codespell.args = vim.list_extend(codespell_args, lint.linters.codespell.args)
+    lint.linters.codespell.args =
+      vim.list_extend(codespell_args, lint.linters.codespell.args)
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
       callback = function()

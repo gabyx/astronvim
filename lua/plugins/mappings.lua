@@ -139,7 +139,7 @@ return {
 
         v = {
 
-          -- No clipboard override when pressing c, x or Del.
+          -- No clipboard override when pressing c, s or Del.
           ["s"] = { '"_s', remap = false },
           ["S"] = { '"_S', remap = false },
           ["c"] = { '"_c', remap = false },
