@@ -1,7 +1,7 @@
 {
   "setup": {
     "prefix": ["iferr"],
-    "body": ["if err != {", "\t$1", "}"],
+    "body": ["if err != nil {", "\t$1", "}"],
     "description": "if err != nil"
   }
 }

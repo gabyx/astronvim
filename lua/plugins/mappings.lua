@@ -85,6 +85,12 @@ return {
             ":Telescope current_buffer_fuzzy_find<cr>",
             desc = "Fuzzy search in current buffer",
           },
+          ["<Leader>sS"] = {
+            function()
+              require("spectre").toggle()
+            end,
+            desc = "Search with Spectre",
+          },
 
           -- LSP commands.
           ["<Leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },

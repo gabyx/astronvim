@@ -155,4 +155,5 @@ return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
+  { "nvim-pack/nvim-spectre" },
 }

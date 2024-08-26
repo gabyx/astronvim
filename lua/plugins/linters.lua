@@ -6,15 +6,17 @@ return {
     local lint = require("lint")
 
     lint.linters_by_ft = {
-      text = { "codespell", "typos" },
       docker = { "codespell", "typos" },
-      yaml = { "codespell", "typos", "yamllint" },
+      go = { "codespell", "typos" },
       json = { "codespell", "typos", "jsonlint" },
       lua = { "codespell", "typos" },
       markdown = { "codespell", "typos", "markdownlint" },
-      rst = { "codespell", "typos" },
       python = { "codespell", "typos" },
+      rst = { "codespell", "typos" },
+      rust = { "codespell", "typos" },
       sh = { "codespell", "typos" },
+      text = { "codespell", "typos" },
+      yaml = { "codespell", "typos", "yamllint" },
     }
 
     -- Codespell Settings

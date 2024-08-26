@@ -8,6 +8,7 @@ return {
     local fs = require("formatter.filetypes")
     local fmtuser = require("user.util.format")
 
+    -- Adjust goline which has bugs on tags
     opts = {
       logging = true,
 
@@ -26,7 +27,14 @@ return {
         vue = { fmts.prettier },
         astro = { fmts.prettier },
         yaml = { fmts.prettier },
-        go = { fs.go.gofmt, fs.go.goimports, fs.go.ogolines },
+        go = {
+          fs.go.gofmt,
+          fs.go.goimports,
+          fs.go.golines,
+          -- function()
+          --   return { exe = "golines", args = { "--no-reformat-tags" } }
+          -- end,
+        },
         sql = {
           fmtuser.sql_format,
         },

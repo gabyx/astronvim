@@ -83,10 +83,6 @@
     "branch": "main",
     "commit": "00ebcaa159e817150bd83bfe2d51fa3b3377d5c4"
   },
-  "fzf-lua": {
-    "branch": "main",
-    "commit": "023b95078f9cc28ce67d7a7a6b4ea1bc7cfa488d"
-  },
   "gitsigns.nvim": {
     "branch": "main",
     "commit": "0b04035bb7b3c83e999b9676e2fb46fd0aa9f910"
@@ -163,10 +159,6 @@
     "branch": "main",
     "commit": "1f4ebcc10852518166ce165e57d425a4265a10d4"
   },
-  "neogit": {
-    "branch": "master",
-    "commit": "af1d8d88f426a4da63c913f3b81a37350dbe8d02"
-  },
   "none-ls.nvim": {
     "branch": "main",
     "commit": "2870f66b1cb263f6e0bfffdb089739b874343a3a"
@@ -222,6 +214,10 @@
   "nvim-notify": {
     "branch": "master",
     "commit": "d333b6f167900f6d9d42a59005d82919830626bf"
+  },
+  "nvim-spectre": {
+    "branch": "master",
+    "commit": "ba7fb777edff6c1fbbeffd343e113af64c04e90a"
   },
   "nvim-surround": {
     "branch": "main",
