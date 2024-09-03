@@ -56,6 +56,7 @@ return {
       "tilt_ls",
       "r_language_server",
       "buck2",
+      "typos_lsp",
     },
 
     -- customize language server configuration options passed to `lspconfig`
