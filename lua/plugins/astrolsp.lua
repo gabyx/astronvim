@@ -50,7 +50,7 @@ return {
       "texlab",
       "jsonls",
       "yamlls",
-      "nil_ls",
+      "nixd",
       "marksman",
       "lua_ls",
       "tilt_ls",

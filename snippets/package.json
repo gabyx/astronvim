@@ -8,6 +8,10 @@
       {
         "language": "go",
         "path": "./go.json"
+      },
+      {
+        "language": "nix",
+        "path": "./nix.json"
       }
     ]
   }

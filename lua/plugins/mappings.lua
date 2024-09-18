@@ -34,6 +34,7 @@ return {
           -- Meta: T-
 
           ["<Leader>b"] = { name = "Buffers" },
+
           -- Search Git files.
           ["<Leader>fg"] = {
             ":Telescope git_files<cr>",
@@ -50,6 +51,7 @@ return {
             desc = "Show Undo Tree",
           },
 
+          -- Git stuff.
           ["<Leader>gD"] = { ":DiffviewOpen<CR>", desc = "Open Diffview." },
 
           -- Select and move inside AST.
@@ -124,6 +126,11 @@ return {
           ["<Leader>ac"] = {
             ":. !<sh-cmd>",
             desc = "Apply command at current line.",
+          },
+
+          -- Show all diagnostics with Trouble.
+          ["<Leader>xx"] = {
+            ":Trouble diagnostics toggle<cr>",
           },
 
           -- Format commands.
