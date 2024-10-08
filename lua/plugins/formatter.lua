@@ -43,7 +43,7 @@ return {
         cpp = { fs.cpp.clangformat },
         sh = { fs.sh.shfmt },
         lua = { fs.lua.stylua },
-        nix = { fs.nix.alejandra },
+        nix = { fs.nix.nixfmt },
         rust = {
           function()
             return {
