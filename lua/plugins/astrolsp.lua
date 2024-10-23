@@ -3,6 +3,8 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+local lsp = require("user.util.lsp")
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -173,6 +175,9 @@ return {
           },
         },
       },
+
+      -- Nixd
+      nixd = lsp.define_nixd_settings(),
     },
 
     -- Customize how language servers are attached

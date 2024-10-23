@@ -27,7 +27,7 @@ end
 -- Returns the config file by searching upwards for patterns `...`
 -- Usage: `search_config_file(path, unpack({".clang-for*", "other*"}))`
 function M.search_parents(startpath, ...)
-  local patterns = vim.tbl_flatten({ ... })
+  local patterns = vim.iter({ ... }):flatten():totable()
 
   for _, pattern in ipairs(patterns) do
     local match = M.search_ancestors(startpath, function(path)
