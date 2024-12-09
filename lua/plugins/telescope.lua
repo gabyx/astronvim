@@ -3,7 +3,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = { -- add a new dependency to telescope that is our new plugin
       "nvim-telescope/telescope-media-files.nvim",
-      -- "ahmedkhalf/project.nvim", -- defined in  ./editor.lua
+      "jonarrien/telescope-cmdline.nvim",
     },
 
     -- The first parameter is the plugin specification
@@ -48,6 +48,7 @@ return {
 
       -- telescope.load_extension "projects"
       telescope.load_extension("media_files")
+      telescope.load_extension("cmdline")
     end,
   },
 }

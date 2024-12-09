@@ -287,6 +287,10 @@
     "branch": "master",
     "commit": "00fba7a0e912a8d82da91a3b6b11d641fa500bd8"
   },
+  "telescope-cmdline.nvim": {
+    "branch": "main",
+    "commit": "8b05928ac1b9f2b772cedde891faa6669b0ec59a"
+  },
   "telescope-fzf-native.nvim": {
     "branch": "main",
     "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b"
@@ -326,5 +330,9 @@
   "which-key.nvim": {
     "branch": "main",
     "commit": "9b365a6428a9633e3eeb34dbef1b791511c54f70"
+  },
+  "zone.nvim": {
+    "branch": "main",
+    "commit": "fe33ba5b92af340a811822cd8d978695f2141bf9"
   }
 }
