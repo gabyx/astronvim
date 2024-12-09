@@ -29,6 +29,11 @@ return {
     "mbbill/undotree",
     lazy = false,
   },
+  -- Stupid Zone plugin: ":Zone"
+  {
+    "tamton-aquib/zone.nvim",
+    lazy = false,
+  },
   -- Smart Splits to Switch between Neovim and Multiplexer.
   { "mrjones2014/smart-splits.nvim", version = ">=1.0.0", lazy = false },
   -- Markdown plugins.
@@ -131,7 +136,7 @@ return {
       autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
       commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
       silent = false, -- Disable plugin messages (Config loaded/ignored)
-      lookup_parents = false, -- Lookup config files in parent directories
+      lookup_parents = true, -- Lookup config files in parent directories
     },
   },
   -- Diff view plugin.

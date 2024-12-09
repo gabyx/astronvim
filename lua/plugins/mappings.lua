@@ -54,6 +54,11 @@ return {
           -- Git stuff.
           ["<Leader>gD"] = { ":DiffviewOpen<CR>", desc = "Open Diffview." },
 
+          ["<Leader>as"] = {
+            "<cmd>Telescope cmdline<cr>",
+            desc = "Open cmdline.",
+          },
+
           -- Select and move inside AST.
           ["<Leader>ba"] = {
             function()
