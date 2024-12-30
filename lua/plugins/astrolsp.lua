@@ -98,7 +98,7 @@ return {
               parameterNames = true,
               rangeVariableTypes = true,
             },
-            buildFlags = { "-tags", "integration" },
+            buildFlags = { "-tags", "test,integration" },
             completeUnimported = true,
             diagnosticsDelay = "500ms",
             matcher = "Fuzzy",
