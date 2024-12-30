@@ -13,7 +13,7 @@
   },
   "aerial.nvim": {
     "branch": "master",
-    "commit": "9c29a1a66eb31384888e413e510ba72496e06770"
+    "commit": "1160fb7a15a34b03b7381d95d45560712b5f19d0"
   },
   "astrocore": {
     "branch": "main",
@@ -73,7 +73,7 @@
   },
   "dressing.nvim": {
     "branch": "master",
-    "commit": "43b8f74e0b1e3f41e51f640f8efa3bcd401cea0d"
+    "commit": "3a45525bb182730fe462325c99395529308f431e"
   },
   "formatter.nvim": {
     "branch": "master",
@@ -113,7 +113,7 @@
   },
   "lazy.nvim": {
     "branch": "main",
-    "commit": "a44e9cd165e11fa61ccfbea2a3cc1aaa3bcfc4f1"
+    "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3"
   },
   "lazydev.nvim": {
     "branch": "main",
@@ -227,6 +227,10 @@
     "branch": "main",
     "commit": "d47001f8ddf9646c24f16d2732d4d0255acd2121"
   },
+  "nvim-tmux-navigation": {
+    "branch": "main",
+    "commit": "4898c98702954439233fdaf764c39636681e2861"
+  },
   "nvim-treehopper": {
     "branch": "master",
     "commit": "e87002968983ed23836dfad53bcf023e609db42d"
@@ -329,7 +333,7 @@
   },
   "which-key.nvim": {
     "branch": "main",
-    "commit": "9b365a6428a9633e3eeb34dbef1b791511c54f70"
+    "commit": "8ab96b38a2530eacba5be717f52e04601eb59326"
   },
   "zone.nvim": {
     "branch": "main",

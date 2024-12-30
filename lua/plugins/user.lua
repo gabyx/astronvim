@@ -29,27 +29,25 @@ return {
     "mbbill/undotree",
     lazy = false,
   },
-  -- Stupid Zone plugin: ":Zone"
-  {
-    "tamton-aquib/zone.nvim",
-    lazy = false,
-  },
-  {
-    "alexghergh/nvim-tmux-navigation",
-    lazy = false,
-    pin = true,
-    opts = {
-      disable_when_zoomed = true,
-      keybindings = {
-        left = "<C-h>",
-        down = "<C-j>",
-        up = "<C-k>",
-        right = "<C-l>",
-        last_active = "<C-\\>",
-        next = "<C-Space>",
-      },
-    },
-  },
+  -- Only used with Tmux setup.
+  -- {
+  --   "alexghergh/nvim-tmux-navigation",
+  --   lazy = false,
+  --   pin = true,
+  --   opts = {
+  --     disable_when_zoomed = true,
+  --     keybindings = {
+  --       left = "<C-h>",
+  --       down = "<C-j>",
+  --       up = "<C-k>",
+  --       right = "<C-l>",
+  --       last_active = "<C-\\>",
+  --       next = "<C-Space>",
+  --     },
+  --   },
+  -- },
+  -- Smart Splits to Switch between Neovim and Multiplexer.
+  { "mrjones2014/smart-splits.nvim", version = ">=1.0.0", lazy = false },
   -- Markdown plugins.
   {
     "iamcco/markdown-preview.nvim",
