@@ -30,10 +30,10 @@ return {
         go = {
           fs.go.gofmt,
           fs.go.goimports,
-          fs.go.golines,
-          -- function()
-          --   return { exe = "golines", args = { "--no-reformat-tags" } }
-          -- end,
+          -- fs.go.golines,
+          function()
+            return { exe = "golines", args = { "--no-reformat-tags" } }
+          end,
         },
         sql = {
           fmtuser.sql_format,

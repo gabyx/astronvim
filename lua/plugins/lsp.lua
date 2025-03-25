@@ -1,4 +1,11 @@
-return { -- CPP clangd extension.
+return {
+  -- Typescript LSP
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
+  -- CPP clangd extension.
   {
     "p00f/clangd_extensions.nvim",
     pin = false,

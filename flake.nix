@@ -32,35 +32,38 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgsStable,
-    flake-utils,
-    githooks,
-    ...
-  } @ inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgsStable,
+      flake-utils,
+      githooks,
+      ...
+    }@inputs:
     flake-utils.lib.eachDefaultSystem
-    # Creates an attribute map `{ devShells.<system>.default = ...}`
-    # by calling this function:
-    (
-      system: let
-        # Import nixpkgs and load it into pkgs.
-        pkgs = import nixpkgs {
-          inherit system;
-        };
+      # Creates an attribute map `{ devShells.<system>.default = ...}`
+      # by calling this function:
+      (
+        system:
+        let
+          # Import nixpkgs and load it into pkgs.
+          pkgs = import nixpkgs {
+            inherit system;
+          };
 
-        # Things needed only at compile-time.
-        nativeBuildInputsBasic = with pkgs; [
-          just
-          stylua
-          githooks.packages.${pkgs.system}.default
-        ];
+          # Things needed only at compile-time.
+          nativeBuildInputsBasic = with pkgs; [
+            just
+            stylua
+            githooks.packages.${pkgs.system}.default
+          ];
 
-        # Things needed at runtime.
-        buildInputs = with pkgs; [];
-      in
-        with pkgs; {
+          # Things needed at runtime.
+          buildInputs = with pkgs; [ ];
+        in
+        with pkgs;
+        {
           devShells = {
             default = mkShell {
               inherit buildInputs;
@@ -68,5 +71,5 @@
             };
           };
         }
-    );
+      );
 }

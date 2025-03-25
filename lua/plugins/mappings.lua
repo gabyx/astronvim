@@ -183,6 +183,16 @@ return {
             ":!<sh-cmd>",
             desc = "Apply command over the selected lines.",
           },
+
+          ["<Leader>b"] = { name = "Base64 Encode/Decode" },
+          ["<Leader>be"] = {
+            "c<C-R>=system('base64 --wrap=0', @\")<cr><esc>",
+            desc = "Base64 Encode",
+          },
+          ["<Leader>bd"] = {
+            "c<C-R>=system('base64 -d --wrap=0', @\")<cr><esc>",
+            desc = "Base64 Decode",
+          },
         },
 
         [{ "n", "v" }] = {
