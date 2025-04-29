@@ -1,5 +1,18 @@
-if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- Filetype mappings which are not autodetected.
+vim.filetype.add({
+	extension = {},
+	filename = {
+		["Tiltfile"] = "tiltfile",
+		["justfile"] = "make",
+	},
+	pattern = {},
+})
 
--- This will run last in the setup process.
--- This is just pure lua so anything that doesn't
--- fit in the normal config locations above can go here
+-- Load autocmds.
+require("user.autocmds")
+
+-- Load local project configuration.
+require("config-local").source()
+
+-- Load all lua snippets.
+require("user.snippets.all")

@@ -1,88 +1,165 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- You can also add or configure plugins by creating files in this `plugins/` folder
--- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
--- Here are some examples:
-
----@type LazySpec
 return {
-
-  -- == Examples of Adding Plugins ==
-
-  "andweeb/presence.nvim",
   {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
+    "simrat39/rust-tools.nvim",
+    name = "rust-tools",
+    config = function(_, opts)
+      local rt = require("rust-tools")
+      opts["server"] = {
+        on_attach = function(_, bufnr)
+          -- Hover actions
+          vim.keymap.set(
+            "n",
+            "<C-space>",
+            rt.hover_actions.hover_actions,
+            { buffer = bufnr }
+          )
+          -- Code action groups
+          vim.keymap.set(
+            "n",
+            "<Leader>a",
+            rt.code_action_group.code_action_group,
+            { buffer = bufnr }
+          )
+        end,
+      }
+      rt.setup(opts)
+    end,
   },
-
-  -- == Examples of Overriding Plugins ==
-
-  -- customize dashboard options
   {
-    "folke/snacks.nvim",
+    "mbbill/undotree",
+    lazy = false,
+  },
+  -- Only used with Tmux setup.
+  -- {
+  --   "alexghergh/nvim-tmux-navigation",
+  --   lazy = false,
+  --   pin = true,
+  --   opts = {
+  --     disable_when_zoomed = true,
+  --     keybindings = {
+  --       left = "<C-h>",
+  --       down = "<C-j>",
+  --       up = "<C-k>",
+  --       right = "<C-l>",
+  --       last_active = "<C-\\>",
+  --       next = "<C-Space>",
+  --     },
+  --   },
+  -- },
+  -- Smart Splits to Switch between Neovim and Multiplexer.
+  { "mrjones2014/smart-splits.nvim", version = ">=1.0.0", lazy = false },
+  -- Markdown plugins.
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    lazy = false,
+  },
+  -- Cpp plugins
+  { "Civitasv/cmake-tools.nvim" },
+  { "p00f/clangd_extensions.nvim", pin = true },
+  -- See keystrokes
+  {
+    "tamton-aquib/keys.nvim",
+    lazy = false,
     opts = {
-      dashboard = {
-        preset = {
-          header = table.concat({
-            " █████  ███████ ████████ ██████   ██████ ",
-            "██   ██ ██         ██    ██   ██ ██    ██",
-            "███████ ███████    ██    ██████  ██    ██",
-            "██   ██      ██    ██    ██   ██ ██    ██",
-            "██   ██ ███████    ██    ██   ██  ██████ ",
-            "",
-            "███    ██ ██    ██ ██ ███    ███",
-            "████   ██ ██    ██ ██ ████  ████",
-            "██ ██  ██ ██    ██ ██ ██ ████ ██",
-            "██  ██ ██  ██  ██  ██ ██  ██  ██",
-            "██   ████   ████   ██ ██      ██",
-          }, "\n"),
-        },
+      enable_on_startup = false,
+    },
+  },
+  -- Move Plugin
+  {
+    "booperlv/nvim-gomove",
+    lazy = false,
+    opts = {
+      -- whether or not to map default key bindings, (true/false)
+      map_defaults = false,
+      -- whether or not to reindent lines moved vertically (true/false)
+      reindent = true,
+      -- whether or not to undojoin same direction moves (true/false)
+      undojoin = true,
+      -- whether to not to move past end column when moving blocks horizontally, (true/false)
+      move_past_end_col = false,
+    },
+  },
+  { "ThePrimeagen/harpoon", lazy = false },
+  {
+    "chentoast/marks.nvim",
+    lazy = false,
+    opts = {
+      -- whether to map keybinds or not. default true
+      default_mappings = true,
+      -- which builtin marks to show. default {}
+      builtin_marks = { "a", "b", "d", "f" },
+      -- whether movements cycle back to the beginning/end of buffer. default true
+      cyclic = true,
+      -- whether the shada file is updated after modifying uppercase marks. default false
+      force_write_shada = false,
+      -- how often (in ms) to redraw signs/recompute mark positions.
+      -- higher values will have better performance but may cause visual lag,
+      -- while lower values may cause performance penalties. default 150.
+      refresh_interval = 250,
+      -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
+      -- marks, and bookmarks.
+      -- can be either a table with all/none of the keys, or a single number, in which case
+      -- the priority applies to all marks.
+      -- default 10.
+      sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+      -- disables mark tracking for specific filetypes. default {}
+      excluded_filetypes = {},
+      -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+      -- sign/virttext. Bookmarks can be used to group together positions and quickly move
+      -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
+      -- default virt_text is "".
+      bookmark_0 = {
+        sign = "⚑",
+        annotate = false,
       },
     },
   },
-
-  -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false },
-
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
-    "L3MON4D3/LuaSnip",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom luasnip configuration such as filetype extend or custom snippets
-      local luasnip = require "luasnip"
-      luasnip.filetype_extend("javascript", { "javascriptreact" })
+    "smoka7/hop.nvim",
+    version = "v2.5.0",
+    opts = {},
+    lazy = false,
+  },
+  -- Surround plugin to easily replace brackets and other shit.
+  {
+    "kylechui/nvim-surround",
+    version = "2.1.5", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
     end,
   },
-
+  -- Local Project Configuration
   {
-    "windwp/nvim-autopairs",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom autopairs configuration such as custom rules
-      local npairs = require "nvim-autopairs"
-      local Rule = require "nvim-autopairs.rule"
-      local cond = require "nvim-autopairs.conds"
-      npairs.add_rules(
-        {
-          Rule("$", "$", { "tex", "latex" })
-            -- don't add a pair if the next character is %
-            :with_pair(cond.not_after_regex "%%")
-            -- don't add a pair if  the previous character is xxx
-            :with_pair(
-              cond.not_before_regex("xxx", 3)
-            )
-            -- don't move right when repeat character
-            :with_move(cond.none())
-            -- don't delete if the next character is xx
-            :with_del(cond.not_after_regex "xx")
-            -- disable adding a newline when you press <cr>
-            :with_cr(cond.none()),
-        },
-        -- disable for .vim files, but it work for another filetypes
-        Rule("a", "a", "-vim")
-      )
-    end,
+    lazy = false,
+    "klen/nvim-config-local",
+    opts = {
+      -- Config file patterns to load (lua supported)
+      config_files = { ".nvim/nvim.lua" },
+
+      -- Where the plugin keeps files data
+      hashfile = vim.fn.stdpath("data") .. "/nvim-config-local",
+
+      autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
+      commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
+      silent = false, -- Disable plugin messages (Config loaded/ignored)
+      lookup_parents = true, -- Lookup config files in parent directories
+    },
   },
+  -- Diff view plugin.
+  { lazy = true, "sindrets/diffview.nvim", cmd = { "DiffviewOpen" } },
+  -- Trouble shows all diagnostics in a common window
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    lazy = true,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = { auto_preview = false, focus = true },
+  },
+  { "nvim-pack/nvim-spectre" },
 }
