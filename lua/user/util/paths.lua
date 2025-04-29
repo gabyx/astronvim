@@ -7,7 +7,7 @@ end
 
 M.get_nixos_flake_url = function()
   local path = vim.fs.normalize("~/.local/share/chezmoi")
-  print(path)
+  print("Flake path:", path)
   if not M.exists(path) then
     return nil
   end
