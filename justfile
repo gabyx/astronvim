@@ -6,6 +6,8 @@ format:
   tools/format-all.sh
 
 reset:
+  rm -rf ~/.local/share/nvim.bak || true
   mv -f ~/.local/share/nvim ~/.local/share/nvim.bak # backup old data folder
+
+  rm -rf ~/.local/state/nvim.bak || true
   mv -f ~/.local/state/nvim ~/.local/state/nvim.bak # backup old state folder
-  mv -f ~/.cache/nvim ~/.cache/nvim.bak             # backup old cache folder
