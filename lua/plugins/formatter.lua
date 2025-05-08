@@ -11,6 +11,7 @@ return {
     -- Adjust goline which has bugs on tags
     opts = {
       logging = true,
+      log_level = vim.log.levels.INFO,
 
       filetype = {
         typescriptreact = { fmts.prettier },
@@ -30,10 +31,7 @@ return {
         go = {
           fs.go.gofmt,
           fs.go.goimports,
-          -- fs.go.golines,
-          function()
-            return { exe = "golines", args = { "--no-reformat-tags" } }
-          end,
+          fs.go.golines,
         },
         sql = {
           fmtuser.sql_format,

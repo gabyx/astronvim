@@ -15,6 +15,17 @@ return {
       init = {},
       astrotheme = {},
     },
+
+    status = {
+      providers = {
+        lsp_client_names = {
+          mappings = {
+            typos_lsp = "typos",
+            lua_lsp = "lua",
+          },
+        },
+      },
+    },
     -- Icons can be configured throughout the interface
     icons = {
       -- configure the loading of the lsp in the status line
