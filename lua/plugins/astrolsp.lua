@@ -289,11 +289,16 @@ return {
     -- mappings to be set up on attaching of a language server
     mappings = {
       n = {
-        gl = {
+        ["<Leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
+        ["<Leader>lo"] = {
+          ":vsplit ~/.local/state/nvim/lsp.log",
+          desc = "LSP log.",
+        },
+        ["<Leader>lw"] = {
           function()
-            vim.diagnostic.open_float()
+            require("snacks.picker").lsp_workspace_symbols()
           end,
-          desc = "Hover diagnostics",
+          desc = "Search workspace symbols",
         },
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
         -- gD = {

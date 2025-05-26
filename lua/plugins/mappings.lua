@@ -99,17 +99,6 @@ return {
             desc = "Search with Spectre",
           },
 
-          -- LSP commands.
-          ["<Leader>l."] = { ":LspRestart<cr>", desc = "Restart LSP" },
-          ["<Leader>lw"] = {
-            ":Telescope lsp_dynamic_workspace_symbols<CR>",
-            desc = "Search workspace symbols.",
-          },
-          ["<Leader>lo"] = {
-            ":vsplit ~/.local/state/nvim/lsp.log",
-            desc = "LSP log.",
-          },
-
           -- Debug Adapter commands.
           ["<Leader>dl"] = {
             ":vsplit ~/.cache/nvim/dap.log",
