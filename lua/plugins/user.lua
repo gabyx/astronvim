@@ -1,5 +1,13 @@
 return {
 	{
+		"simrat39/rust-tools.nvim",
+		name = "rust-tools",
+		config = function(_, opts)
+			local rt = require("rust-tools")
+			rt.setup(opts)
+		end,
+	},
+	{
 		"mbbill/undotree",
 		lazy = false,
 	},
