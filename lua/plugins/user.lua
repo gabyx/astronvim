@@ -198,4 +198,14 @@ return {
 			},
 		},
 	},
+  {
+    "eandrju/cellular-automaton.nvim",
+    keys = {
+      {
+        "<Leader>sff",
+        ":CellularAutomaton make_it_rain<cr>",
+        desc = "Make letters falling.",
+      },
+    },
+  },
 }
