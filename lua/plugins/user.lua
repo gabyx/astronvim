@@ -127,28 +127,75 @@ return {
       -- Where the plugin keeps files data
       hashfile = vim.fn.stdpath("data") .. "/nvim-config-local",
 
-      autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
-      commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
-      silent = false, -- Disable plugin messages (Config loaded/ignored)
-      lookup_parents = true, -- Lookup config files in parent directories
-    },
-  },
-  -- Visual whitespaces.
-  {
-    "mcauley-penney/visual-whitespace.nvim",
-    config = true,
-    event = "ModeChanged *:[vV\22]", -- optionally, lazy load on entering visual mode
-    opts = {},
-  },
-  -- Diff view plugin.
-  { lazy = true, "sindrets/diffview.nvim", cmd = { "DiffviewOpen" } },
-  -- Trouble shows all diagnostics in a common window
-  {
-    "folke/trouble.nvim",
-    cmd = "Trouble",
-    lazy = true,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = { auto_preview = false, focus = true },
-  },
-  { "nvim-pack/nvim-spectre" },
+			autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
+			commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
+			silent = false, -- Disable plugin messages (Config loaded/ignored)
+			lookup_parents = true, -- Lookup config files in parent directories
+		},
+	},
+	-- Visual whitespaces.
+	{
+		"mcauley-penney/visual-whitespace.nvim",
+		config = true,
+		event = "ModeChanged *:[vV\22]", -- optionally, lazy load on entering visual mode
+		opts = {},
+	},
+	-- Diff view plugin.
+	{ lazy = true, "sindrets/diffview.nvim", cmd = { "DiffviewOpen" } },
+	-- Trouble shows all diagnostics in a common window
+	{
+		"folke/trouble.nvim",
+		cmd = "Trouble",
+		lazy = true,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = { auto_preview = false, focus = true },
+	},
+	{
+		"nvim-pack/nvim-spectre",
+		keys = {
+			{
+				"<Leader>sw",
+				function()
+					require("spectre").open_visual({ select_word = true })
+				end,
+				desc = "Search current word.",
+			},
+			{
+				"<Leader>sw",
+				function()
+					require("spectre").open_visual()
+				end,
+				desc = "Search current word.",
+				mode = "v",
+			},
+			{
+				"<Leader>sp",
+				function()
+					require("spectre").open_file_search({ select_word = true })
+				end,
+				desc = "Search current word in file.",
+			},
+			{
+				"<Leader>sS",
+				function()
+					require("spectre").toggle()
+				end,
+				desc = "Search with Spectre",
+			},
+		},
+	},
+	-- Adding some nice searchline/cmdline.
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			presets = {
+				bottom_search = true, -- use a classic bottom cmdline for search
+				command_palette = true, -- position the cmdline and popupmenu together
+				long_message_to_split = true, -- long messages will be sent to a split
+				inc_rename = false, -- enables an input dialog for inc-rename.nvim
+				lsp_doc_border = false, -- add a border to hover docs and signature help
+			},
+		},
+	},
 }

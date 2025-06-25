@@ -88,16 +88,6 @@ return {
 
           -- Search commands.
           ["<Leader>s"] = { name = "Search" },
-          ["<Leader>ss"] = {
-            ":Telescope current_buffer_fuzzy_find<cr>",
-            desc = "Fuzzy search in current buffer",
-          },
-          ["<Leader>sS"] = {
-            function()
-              require("spectre").toggle()
-            end,
-            desc = "Search with Spectre",
-          },
 
           -- Debug Adapter commands.
           ["<Leader>dl"] = {
