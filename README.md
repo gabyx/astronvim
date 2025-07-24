@@ -1,3 +1,8 @@
+> [!WARNING]
+> 
+> The neovim configuration is **now maintained** [here](https://github.com/gabyx/dotfiles/tree/main/config/dot_config/nvim) with Nix and all treesitter stuff.
+
+
 # AstroNvim Configuration for Neovim
 
 **NOTE:** This is for AstroNvim `v4+`
